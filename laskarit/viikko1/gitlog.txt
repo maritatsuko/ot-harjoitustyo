@@ -1,0 +1,162 @@
+git log --stat | cat
+commit 149413920ad006e09312d2b947d6799e58c7f9b7
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:34:31 2022 +0200
+
+```
+taas muutoksia
+
+```
+
+tiedostoja/file2.txt                 | 0
+tiedostoja/{file1.txt => file22.txt} | 0
+2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4b2a58571b4bdfe95d1397e605337e3a7cff638e
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:29:48 2022 +0200
+
+```
+uusi hakemisto ja tiedostoja
+
+```
+
+tiedostoja/file1.txt | 0
+tiedostoja/file2.txt | 0
+tiedostoja/file3.txt | 0
+3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 3429b31fcffe9d634956945d8facc3846c446519
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:23:57 2022 +0200
+
+```
+muutoksia taas
+
+```
+
+eka.txt    | 2 +-
+kolmas.txt | 2 +-
+2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 523e373ac9ae9456f2f40161d7f87c6202335e86
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:19:55 2022 +0200
+
+```
+muutokset
+
+```
+
+tiedosto.txt | 10 ----------
+1 file changed, 10 deletions(-)
+
+commit 87ef60910946af31c4faeb329017fa8851551590
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:19:07 2022 +0200
+
+```
+nimenmuutos
+
+```
+
+eka.txt | 10 ++++++++++
+1 file changed, 10 insertions(+)
+
+commit ec4c6d386a992b6d791f025ac3d8811cf4a36b44
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:18:01 2022 +0200
+
+```
+poisto
+
+```
+
+toinen.txt | 1 -
+1 file changed, 1 deletion(-)
+
+commit 6a8764d007cbda995d0a04d69fbcd19bf3b3c6af
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:15:36 2022 +0200
+
+```
+poisto ja lisäys
+
+```
+
+tiedosto.txt | 1 +
+1 file changed, 1 insertion(+)
+
+commit 7f6a8ea6b30330cfdce6fdab8dce11d7a5b052d0
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:14:08 2022 +0200
+
+```
+paljon tekstiä
+
+```
+
+tiedosto.txt | 8 ++++++++
+1 file changed, 8 insertions(+)
+
+commit c8d5ef993fa2ba1412bfd7942765dc74ab571548
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:04:41 2022 +0200
+
+```
+uusi hakemisto
+
+```
+
+stuff/jokin.txt | 0
+1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 70bcf20df1c21a4fa6d85c521afe0ed9ae71cf32
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:02:51 2022 +0200
+
+```
+muutokset
+
+```
+
+kolmas.txt | 2 ++
+toinen.txt | 1 +
+2 files changed, 3 insertions(+)
+
+commit be36c822f41a7e6eaa0db5c38f328b0705176c91
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 20:01:29 2022 +0200
+
+```
+lisäys
+
+```
+
+kolmas.txt | 0
+1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 77fb50deac9bc0887f48373d2b436d4953e97949
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 19:58:42 2022 +0200
+
+```
+muutos ja lisäys
+
+```
+
+tiedosto.txt | 1 +
+toinen.txt   | 0
+2 files changed, 1 insertion(+)
+
+commit 327ae3d36f88cdc756145a6693c0ba6c74cb74e3
+Author: Mari Lehtikari [mari.lehtikari@helsinki.fi](mailto:mari.lehtikari@helsinki.fi)
+Date:   Tue Mar 22 19:55:47 2022 +0200
+
+```
+tiedosto.txt luotu
+
+```
+
+tiedosto.txt | 0
+1 file changed, 0 insertions(+), 0 deletions(-)
