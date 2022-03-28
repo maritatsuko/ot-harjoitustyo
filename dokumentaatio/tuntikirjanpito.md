@@ -2,4 +2,4 @@
 
 | pvm | käytetty aika | mitä tein |
 | --- | ------------- | --------- |
-| 28.3. | 35 min | vaatimusmäärittely + tuntikirjanpidon aloitus |
+| 28.3. | 1 h | vaatimusmäärittely + tuntikirjanpidon aloitus |
