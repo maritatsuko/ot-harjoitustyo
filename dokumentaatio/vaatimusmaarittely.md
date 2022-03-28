@@ -14,7 +14,7 @@ Sovelluksen ideana on yksinkertainen muistipeli, jossa on useampi taso. Käyttä
 
 ### Kirjautumisen jälkeen
 
-- Käyttäjä voi näkee tasovalikossa pelin eri tasot, joista hän voi valita
+- Käyttäjä näkee tasovalikossa pelin eri tasot, joista hän voi valita
   - Valittuaan tason käyttäjä pääsee pelaamaan muistipeliä
   - Pelistä voi poistua takaisin tasovalikkoon
 - Pelin jälkeen käyttäjälle näytetään tason pisteet ja leaderboard
