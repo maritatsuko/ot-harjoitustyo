@@ -1,3 +1,5 @@
+[vaatimusmaarittely.md](https://github.com/maritatsuko/ot-harjoitustyo/blob/144b942f61aa903f74b4937b6b54b02146638c6f/dokumentaatio/vaatimusmaarittely.md)
+
 # otsikko
 Normitekstiä, **jossa** on _muotoilua_.
 [komentorivi.txt](https://github.com/maritatsuko/ot-harjoitustyo/blob/286e82bda0eb8eed63546175b0bd5c1839b6c19f/laskarit/viikko1/komentorivi.txt)
