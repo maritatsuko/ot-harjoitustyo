@@ -1,4 +1,4 @@
-[vaatimusmaarittely.md](https://github.com/maritatsuko/ot-harjoitustyo/blob/144b942f61aa903f74b4937b6b54b02146638c6f/dokumentaatio/vaatimusmaarittely.md)
+[vaatimusmaarittely.md](https://github.com/maritatsuko/ot-harjoitustyo/blob/2620523b556063cf6b826a5c7f1933f4f17cac64/dokumentaatio/vaatimusmaarittely.md)
 
 [tuntikirjanpito.md](https://github.com/maritatsuko/ot-harjoitustyo/blob/eb96ef916f84bf75717a45baeb0a3fc9eb479730/dokumentaatio/tuntikirjanpito.md)
 
