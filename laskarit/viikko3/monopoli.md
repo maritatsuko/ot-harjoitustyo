@@ -36,5 +36,5 @@
         Peli --> Pelilauta
         Peli --> Toiminnot
         Pelilauta --> Kadut
-        Pelilauta --> Toiminnnot
+        Pelilauta --> Toiminnot
         Kadut --> Pelaaja
