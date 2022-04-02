@@ -12,3 +12,7 @@
         Peli : int noppa2
         Peli : List pelaajat
         Peli : pelilauta
+
+        Pelaaja --> Pelilauta
+        Peli --> Pelaaja
+        Peli --> Pelilauta
