@@ -3,6 +3,7 @@
         class Pelaaja
         Pelaaja : nappula
         Pelaaja : sijainti
+        Pelaaja : List omistukset
         Pelaaja : raha
 
         class Pelilauta
