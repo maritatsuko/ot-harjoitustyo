@@ -39,3 +39,4 @@
         Pelilauta --> Kadut
         Pelilauta --> Toiminnot
         Kadut --> Pelaaja
+        Toiminnot --> Kadut
