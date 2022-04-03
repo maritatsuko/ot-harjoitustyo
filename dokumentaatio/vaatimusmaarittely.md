@@ -23,6 +23,7 @@ Sovelluksen ideana on yksinkertainen muistipeli, jossa on useampi taso. Käyttä
 
 ## Jatkokehitysideoita (näistä osa toteutetaan)
 
-- Leaderboard jokaiselle tasolle, missä näkyy top 10 kakista käyttäjistä
+- Jokaiselle tasolle leaderboard, jossa näkyy top 10 kaikista käyttäjistä
 - Ylimääräisiä toimintoja itse muistipeliin
   - Korttien määrän muokkaus, aikarajan asettaminen, "apujen" lisääminen (esim. paljastaa pari korttia x-ajaksi)
+- Käyttäjätunnuksen turvaaminen salasanalla
