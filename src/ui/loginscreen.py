@@ -1,4 +1,5 @@
 from tkinter import Tk, ttk, constants
+from levels import LevelsUI
 
 class LoginUI:
     def __init__(self, root):
@@ -19,8 +20,7 @@ class LoginUI:
         self._root.grid_columnconfigure(1, weight=1, minsize=300)     
 
     def _button_click(self):
-       username = self._un_entry.get()
-       print(f"Welcome {username}")
+       username = self._un_entry.get() #the username(s) should probs be stored in a file 
 
 window = Tk()
 window.title("Mochi - Log in")
