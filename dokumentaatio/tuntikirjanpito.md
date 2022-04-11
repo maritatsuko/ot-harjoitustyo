@@ -7,4 +7,5 @@
 | 3.4. | 1 h 45 min | Koodin aloitus, pygameen tutustuminen, sovelluslogikan ymmärtämisen yrittämistä |
 | 9.4. | 1 h 30 min | Log in screenin UI:n työstäminen, tkinteriin tutustuminen |
 | 10.4. | 40 min | - " - |
-| Yhteensä: | 5 h 35 min |
+| 11.4. | 1 h 45 min| Levels UI:in luominen, Log in screenin ja levels välillä siirtymisen toteuttaminen |
+| Yhteensä: | 7 h 20 min |
