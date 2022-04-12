@@ -32,10 +32,3 @@ class LoginUI:
     def logging_username(self):
         username = self.un_entry.get()
         return username
-
-#window = Tk()
-#window.title("Mochi - Log in")
-
-#ui = LoginUI(window)
-#ui.start()
-#window.mainloop()

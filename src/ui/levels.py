@@ -31,11 +31,3 @@ class LevelsUI:
 
     def _level_click(self):
        pass
-
-
-#window = Tk()
-#window.title("Mochi - Levels")
-
-#ui = LevelsUI(window)
-#ui.start()
-#window.mainloop()
