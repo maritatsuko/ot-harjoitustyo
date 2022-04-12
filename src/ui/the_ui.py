@@ -17,7 +17,7 @@ class UserInterface:
         self._current = None
     
     def _logging_in(self):
-        #username = self._un_entry.get()
+        #LoginUI.logging_username(self)
         self._open_levels()
     
     def _logging_out(self):
