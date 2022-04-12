@@ -4,6 +4,6 @@
       UserInterface "*" --> LevelsUI
       class UserInterface
       class LoginUI
-      class LevesUI
+      class LevelsUI
       class Gameplay
 ```
