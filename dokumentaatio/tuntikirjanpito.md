@@ -8,4 +8,5 @@
 | 9.4. | 1 h 30 min | Log in screenin UI:n työstäminen, tkinteriin tutustuminen |
 | 10.4. | 40 min | - " - |
 | 11.4. | 1 h 45 min| Levels UI:in luominen, Log in screenin ja levels välillä siirtymisen toteuttaminen |
-| Yhteensä: | 7 h 20 min |
+| 12.4. | 40 min | Lisätty poetry invoke, testien luominen aloitettu, importtien kanssa edelleen ongelmaa |
+| Yhteensä: | 8 h 00 min |
