@@ -1,4 +1,12 @@
 [[package]]
+name = "invoke"
+version = "1.7.0"
+description = "Pythonic task execution"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pygame"
 version = "2.1.2"
 description = "Python Game Development"
@@ -9,9 +17,13 @@ python-versions = ">=3.6"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "ceabba9b684e4f2ab71d2d4da4968eba8c229599e1fa639f3b9b53711f3f4243"
+content-hash = "00a13d8a7eefc83b0f606834e191a8210a53657f24a3ee1892c5b2d547819628"
 
 [metadata.files]
+invoke = [
+    {file = "invoke-1.7.0-py3-none-any.whl", hash = "sha256:a5159fc63dba6ca2a87a1e33d282b99cea69711b03c64a35bb4e1c53c6c4afa0"},
+    {file = "invoke-1.7.0.tar.gz", hash = "sha256:e332e49de40463f2016315f51df42313855772be86435686156bc18f45b5cc6c"},
+]
 pygame = [
     {file = "pygame-2.1.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f149e182d0eeef15d8a9b4c9dad1b87dc6eba3a99bd3c44a777a3a2b053a3dca"},
     {file = "pygame-2.1.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:dc4444d61d48c5546df5137cdf81554887ddb6e2ef1be7f51eb77ea3b6bdd56f"},

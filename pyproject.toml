@@ -7,6 +7,7 @@ authors = ["Mari Lehtikari <mari.lehtikari@helsinki.fi>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 pygame = "^2.1.2"
+invoke = "^1.7.0"
 
 [tool.poetry.dev-dependencies]
 
