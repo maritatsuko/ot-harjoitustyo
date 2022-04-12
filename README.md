@@ -10,6 +10,8 @@ Sovellus on muistipeli (itse peli vielä puuttuu).
 
 [changelog.md](./dokumentaatio/changelog.md)
 
+[arkkitehtuuri.md](./dokumentaatio/arkkitehtuuri.md)
+
 ## Sovelluksen suorittaminen
 
 Komennolla:
