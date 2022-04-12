@@ -1,3 +1,23 @@
-[vaatimusmaarittely.md](https://github.com/maritatsuko/ot-harjoitustyo/blob/a2dbba6234c1580ec0ad9ead805cf3cbaec01d5e/dokumentaatio/vaatimusmaarittely.md)
+# Mochi
 
-[tuntikirjanpito.md](https://github.com/maritatsuko/ot-harjoitustyo/blob/a5b8cf25c46c71594562751bad4d2fc2f628f1e1/dokumentaatio/tuntikirjanpito.md)
+Sovellus on muistipeli (itse peli vielä puuttuu).
+
+## Dokumentaatio
+
+[vaatimusmaarittely.md](./dokumentaatio/vaatimusmaarittely.md)
+
+[tuntikirjanpito.md](./dokumentaatio/tuntikirjanpito.md)
+
+[changelog.md](./dokumentaatio/changelog.md)
+
+## Sovelluksen suorittaminen
+
+Komennolla:
+
+```bash
+poetry run invoke start
+```
+
+## Testit
+
+Sovelluksella ei ole vielä testejä.
