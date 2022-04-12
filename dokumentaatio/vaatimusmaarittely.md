@@ -10,16 +10,16 @@ Sovelluksen ideana on yksinkertainen muistipeli, jossa on useampi taso. Käyttä
 
 - Käyttäjä voi luoda käyttäjätunnuksen
 - Käyttäjä voi kirjautua järjestelmään
-  - Kirjautuminen onnistuu syöttämällä olemassaolevan tunnuksen kirjautumissivulla
+  - Kirjautuminen onnistuu syöttämällä olemassaolevan tunnuksen kirjautumissivulla (Osittain tehty)
 
 ### Kirjautumisen jälkeen
 
-- Käyttäjä näkee tasovalikossa pelin eri tasot, joista hän voi valita
+- Käyttäjä näkee tasovalikossa pelin eri tasot(Tehty), joista hän voi valita
   - Valittuaan tason käyttäjä pääsee pelaamaan muistipeliä
   - Pelistä voi poistua takaisin tasovalikkoon
 - Pelin jälkeen käyttäjälle näytetään tason pisteet ja leaderboard
   - Pistetaulusta poistutaan takaisin tasovalikkoon
-- Tasovalikosta voi kirjautua ulos
+- Tasovalikosta voi kirjautua ulos (Tehty)
 
 ## Jatkokehitysideoita (näistä osa toteutetaan)
 
