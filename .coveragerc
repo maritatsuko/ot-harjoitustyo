@@ -1,0 +1,3 @@
+[run]
+source = ot-harjoitustyo
+omit = ot-harjoitustyo/src/**/__init__.py,ot-harjoitustyosrc/tests/**,ot-harjoitustyo/src/index.py,ot-harjoitustyo/laskarit/**
