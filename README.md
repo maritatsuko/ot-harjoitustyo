@@ -1,2 +1,4 @@
 # Ohjelmistotekniikka, harjoitustyö
-Teen **vaatekaappisovelluksen**, johon voi *ladata kuvia* omista vaatteista ja *lajitella* ne.
+I am making a **closet application** where the user can *upload pictures* of their clothes and *sort* them.
+
+[Laskarit](https://github.com/maritatsuko/ot-harjoitustyo/tree/main/laskarit)
