@@ -15,7 +15,9 @@ class TestKassapaate(unittest.TestCase):
     
     def test_luodun_kassapaatteen_myydyt_maukkaat_oikein(self):
         self.assertEqual(self.kassapaate.maukkaat, 0)
-    
+
+# käteistestit alkaa tästä
+
     def test_kateisosto_edullisesti_riittava_maksu_toimii(self):
         self.kassapaate.syo_edullisesti_kateisella(240)
         self.assertEqual(self.kassapaate.kassassa_rahaa, 100240)
@@ -44,7 +46,7 @@ class TestKassapaate(unittest.TestCase):
     
     def test_kateisosto_maukkaasti_riittava_maksu_palauttaa_oikein(self):
         self.assertEqual(self.kassapaate.syo_maukkaasti_kateisella(400), 0)
-    
+
     def test_kateisosto_maukkaasti_riittava_maksu_lisaa_myytyja_maukkaita(self):
         self.kassapaate.syo_maukkaasti_kateisella(400)
         self.assertEqual(self.kassapaate.maukkaat, 1)
@@ -60,7 +62,7 @@ class TestKassapaate(unittest.TestCase):
         self.kassapaate.syo_maukkaasti_kateisella(399)
         self.assertEqual(self.kassapaate.maukkaat, 0)
 
-#korttitestit alkaa tästä, kesken!!
+# korttitestit alkaa tästä
     
     def test_korttiosto_edullisesti_riittava_saldo_veloitetaan(self):
         self.kassapaate.syo_edullisesti_kortilla(self.maksukortti)
