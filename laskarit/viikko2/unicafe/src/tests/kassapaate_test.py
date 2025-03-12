@@ -73,4 +73,59 @@ class TestKassapaate(unittest.TestCase):
     
     def test_korttiosto_edullisesti_riittava_saldo_kasvattaa_myytyja(self):
         self.kassapaate.syo_edullisesti_kortilla(self.maksukortti)
-        self.assertEqual(self.maksukortti.saldo_euroina(), 7.60)
+        self.assertEqual(self.kassapaate.edulliset, 1)
+    
+    def test_korttiosto_edullisesti_ei_riittava_saldo_ei_muuta_korttia(self):
+        self.maksukortti = Maksukortti(239)
+        self.kassapaate.syo_edullisesti_kortilla(self.maksukortti)
+        self.assertEqual(self.maksukortti.saldo_euroina(), 2.39)
+    
+    def test_korttiosto_edullisesti_ei_riittava_saldo_ei_muuta_myytyja(self):
+        self.maksukortti = Maksukortti(239)
+        self.kassapaate.syo_edullisesti_kortilla(self.maksukortti)
+        self.assertEqual(self.kassapaate.edulliset, 0)
+    
+    def test_korttiosto_edullisesti_ei_riittava_saldo_palauttaa_oikein(self):
+        self.maksukortti = Maksukortti(239)
+        self.assertFalse(self.kassapaate.syo_edullisesti_kortilla(self.maksukortti))
+    
+    def test_kassan_kassan_rahamaara_ei_muutu_korttiostossa(self):
+        self.kassapaate.syo_edullisesti_kortilla(self.maksukortti)
+        self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
+        self.assertEqual(self.kassapaate.kassassa_rahaa, 100000)
+    
+    def test_korttiosto_maukkaasti_riittava_saldo_veloitetaan(self):
+        self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
+        self.assertEqual(self.maksukortti.saldo_euroina(), 6.0)
+    
+    def test_korttiosto_maukkaasti_riittava_saldo_toimii(self):
+        self.assertTrue(self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti))
+    
+    def test_korttiosto_maukkaasti_riittava_saldo_kasvattaa_myytyja(self):
+        self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
+        self.assertEqual(self.kassapaate.maukkaat, 1)
+    
+    def test_korttiosto_maukkaasti_ei_riittava_saldo_ei_muuta_korttia(self):
+        self.maksukortti = Maksukortti(399)
+        self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
+        self.assertEqual(self.maksukortti.saldo_euroina(), 3.99)
+    
+    def test_korttiosto_maukkaasti_ei_riittava_saldo_ei_muuta_myytyja(self):
+        self.maksukortti = Maksukortti(399)
+        self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
+        self.assertEqual(self.kassapaate.maukkaat, 0)
+
+    def test_korttiosto_maukkaasti_ei_riittava_saldo_palauttaa_oikein(self):
+        self.maksukortti = Maksukortti(239)
+        self.assertFalse(self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti))
+
+# kortille lataaminen
+
+    def test_kortille_ladattaessa_kortin_saldo_muuttuu(self):
+        self.kassapaate.lataa_rahaa_kortille(self.maksukortti, 100)
+        self.assertEqual(self.maksukortti.saldo_euroina(), 11.0)
+    
+    def test_kassan_rahamaara_kasvaa_kortille_ladattaessa(self):
+        self.kassapaate.lataa_rahaa_kortille(self.maksukortti, 100)
+        self.assertEqual(self.kassapaate.kassassa_rahaa, 100100)
+    
