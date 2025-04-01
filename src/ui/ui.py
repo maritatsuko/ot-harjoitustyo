@@ -1,6 +1,6 @@
 from ui.start_view import StartView
 from ui.create_acc_view import CreateAccView
-from tkinter import ttk
+from ui.main_view import MainView
 
 class UI:
 
@@ -22,6 +22,7 @@ class UI:
 
         self._current_view = StartView(
             self._root,
+            self._show_main_view,
             self._show_create_acc_view
         )
 
@@ -31,6 +32,15 @@ class UI:
         self._hide_current_view()
 
         self._current_view = CreateAccView(
+            self._root,
+            self._show_start_view
+        )
+
+        self._current_view.pack()
+    
+    def _show_main_view(self):
+        self._hide_current_view()
+        self._current_view = MainView(
             self._root,
             self._show_start_view
         )

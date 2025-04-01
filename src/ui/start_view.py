@@ -2,9 +2,10 @@ from tkinter import ttk, constants
 
 class StartView:
 
-    def __init__(self, root, handle_show_create_acc_view):
+    def __init__(self, root, handle_login, handle_show_create_acc_view):
 
         self._root = root
+        self._handle_login = handle_login
         self._handle_show_create_acc_view = handle_show_create_acc_view
         self._frame = None
 
@@ -24,7 +25,7 @@ class StartView:
 
         password_label = ttk.Label(master=self._frame, text="Password:")
         password_entry = ttk.Entry(master=self._frame)
-        login_button = ttk.Button(master=self._frame, text="Login")
+        login_button = ttk.Button(master=self._frame, text="Login", command=self._handle_login)
         create_acc_button = ttk.Button(master=self._frame, text="Create New Account", command=self._handle_show_create_acc_view)
         
         self._frame.grid_columnconfigure(0, weight=1, minsize=600)
