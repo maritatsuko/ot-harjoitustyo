@@ -33,6 +33,7 @@ class UI:
 
         self._current_view = CreateAccView(
             self._root,
+            self._show_main_view,
             self._show_start_view
         )
 
