@@ -17,22 +17,25 @@ class MainView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
-        label = ttk.Label(
+        title = ttk.Label(master=self._frame,
+                          text="Your Closet <3", font=("Times", 24))
+        welcome_text = ttk.Label(
             master=self._frame, text="Welcome to ClosetApp! Here you can manage your closet and outfits.", font=("Times", 16))
 
         logout_button = ttk.Button(
             master=self._frame, text="Logout", command=self._handle_show_start_view)
-        title = ttk.Label(master=self._frame,
-                          text="Your Closet <3", font=("Times", 24))
-        
+
+        title2 = ttk.Label(
+            master=self._frame, text="Uploaded pieces:", font=("Times", 20))
         filename = PhotoImage(file="src/data/blaser.png")
-        canvas = Canvas(self._frame, width=filename.width(), height=filename.height())
+        canvas = Canvas(self._frame, width=1000, height=filename.height(), bg="white", bd=5, relief="groove")
         image = canvas.create_image(0, 0, image=filename, anchor="nw")
 
-        self._frame.grid_columnconfigure(0, weight=1, minsize=1000)
-        self._frame.grid_rowconfigure(4, weight=1, minsize=1000)
+        self._frame.grid_columnconfigure(1, weight=1)
+        self._frame.grid_rowconfigure(4, weight=1)
         logout_button.grid(row=0, column=1, padx=5, pady=5, sticky=constants.E)
         title.grid(row=1, column=0, padx=5, pady=5, sticky=constants.EW)
-        label.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
-        canvas.grid(row=3, column=0, padx=5, pady=5, sticky=constants.N)
+        welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
+        title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
+        canvas.grid(row=4, column=0, padx=5, pady=5, sticky=constants.N)
         canvas.image = filename
