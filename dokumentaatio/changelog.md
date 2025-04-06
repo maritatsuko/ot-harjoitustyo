@@ -5,3 +5,6 @@
 - User can log out
 - Created UserRepository and ClosetService which handle users
 - Added a test for the function that creates user accounts
+
+## Week 4
+- User can see uploaded images on the main page
