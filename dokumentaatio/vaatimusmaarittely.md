@@ -6,8 +6,8 @@ The app can be used by multiple registered users.
 
 ## Basic planned functionality
 ### Before signing in
-- the user can create an account
-- the user can log in
+- the user can create an account | "tehty"
+- the user can log in | "tehty"
 
 ### After signing in
 - the user can see the uploaded pictures
