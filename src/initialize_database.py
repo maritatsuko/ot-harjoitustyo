@@ -8,6 +8,9 @@ def drop_tables(connection):
     cursor.execute("""
         drop table if exists users;
     """)
+    cursor.execute("""
+        drop table if exists pieces;
+    """)
 
     connection.commit()
 
@@ -18,8 +21,20 @@ def create_tables(connection):
 
     cursor.execute("""
         create table users (
-            username text primary key,
+            id integer primary key autoincrement,
+            username text,
             password text
+        );
+    """)
+    cursor.execute("""
+        create table pieces (
+            id integer primary key autoincrement,
+            name text,
+            color text,
+            type text,
+            image_path text,
+            user_id integer,
+            foreign key (user_id) references users (id)
         );
     """)
 
