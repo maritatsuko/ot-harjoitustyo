@@ -1,4 +1,5 @@
-from tkinter import ttk, constants
+from tkinter import ttk, constants, PhotoImage, Canvas
+
 
 class MainView:
     def __init__(self, root, handle_show_start_view):
@@ -7,19 +8,31 @@ class MainView:
         self._frame = None
 
         self._initialize()
-    
+
     def pack(self):
-        self._frame.pack(fill=constants.X)
+        self._frame.pack(fill=constants.BOTH, expand=True)
 
     def destroy(self):
         self._frame.destroy()
-    
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
-        label = ttk.Label(master=self._frame, text="Welcome to ClosetApp!")
+        label = ttk.Label(
+            master=self._frame, text="Welcome to ClosetApp! Here you can manage your closet and outfits.", font=("Times", 16))
 
-        logout_button = ttk.Button(master=self._frame, text="Logout", command=self._handle_show_start_view)
+        logout_button = ttk.Button(
+            master=self._frame, text="Logout", command=self._handle_show_start_view)
+        title = ttk.Label(master=self._frame,
+                          text="Your Closet <3", font=("Times", 24))
+        
+        filename = PhotoImage(file="src/data/blaser.png")
+        canvas = Canvas(self._frame, width=filename.width(), height=filename.height())
+        image = canvas.create_image(0, 0, image=filename, anchor="nw")
 
-        self._frame.grid_columnconfigure(0, weight=1, minsize=600)
-        label.grid(padx=5, pady=5, sticky=constants.EW)
-        logout_button.grid(row=1, column=1, padx=5, pady=5, sticky=constants.E)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=1000)
+        self._frame.grid_rowconfigure(4, weight=1, minsize=1000)
+        logout_button.grid(row=0, column=1, padx=5, pady=5, sticky=constants.E)
+        title.grid(row=1, column=0, padx=5, pady=5, sticky=constants.EW)
+        label.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
+        canvas.grid(row=3, column=0, padx=5, pady=5, sticky=constants.N)
+        canvas.image = filename
