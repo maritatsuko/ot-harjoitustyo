@@ -16,7 +16,7 @@ poetry install
 ```
 2. Initialize database with
 ```
-python3 src/initialize_database.py
+poetry run invoke init-db
 ```
 3. Start application with
 ```
