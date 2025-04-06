@@ -33,3 +33,8 @@ poetry run invoke test
 ```
 poetry run invoke coverage-report
 ```
+
+## Pylint can be run with
+```
+poetry run invoke lint
+```
