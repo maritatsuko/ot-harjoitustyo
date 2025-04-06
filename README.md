@@ -31,5 +31,5 @@ poetry run invoke test
 
 ## Test coverage report can be generated with
 ```
-poetry run invoke coverage-test
+poetry run invoke coverage-report
 ```
