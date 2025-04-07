@@ -1,3 +1,5 @@
+from tkinter import filedialog
+import os
 from entities.user import User
 from entities.piece import Piece
 
@@ -60,6 +62,20 @@ class ClosetService:
             self._piece = piece
 
         return piece
+
+    def show_image(self):
+        file_path = filedialog.askopenfilename(
+            initialdir=os.getcwd(),
+            title="Select image file",
+            filetypes=[("PNG file", "*.png")])
+        if not file_path:
+            return None
+
+        filename, ext = os.path.splitext(file_path)
+        if ext.lower() not in [".png"]:
+            raise ValueError("Invalid image format")
+
+        return file_path
 
 
 closet_service = ClosetService()
