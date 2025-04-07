@@ -30,9 +30,9 @@ def create_tables(connection):
         create table pieces (
             id integer primary key autoincrement,
             title text,
+            image_path text,
             color text,
             type text,
-            image_path text,
             user_id integer,
             foreign key (user_id) references users (id)
         );

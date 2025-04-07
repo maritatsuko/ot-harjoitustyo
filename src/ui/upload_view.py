@@ -11,6 +11,7 @@ class UploadView:
         self._frame = None
         self._title_entry = None
         self._image = None
+        self._image_path = None
         self._image_area = None
         self._error_variable = None
         self._error_label = None
@@ -25,13 +26,14 @@ class UploadView:
     
     def _upload_handler(self):
         title = self._title_entry.get()
+        image_path = self._image_path
 
         if len(title) == 0:
             self._show_error("Please enter a name for the piece")
             return
         
         try:
-            closet_service.upload_piece(title)
+            closet_service.upload_piece(title, image_path)
             self._handle_upload_piece()
         except ValueError:
             self._show_error(f"A piece with the name {title} has already been uploaded")
@@ -52,12 +54,12 @@ class UploadView:
         self._title_entry.grid(row=2, column=0, sticky=constants.EW)
 
     def _show_image(self):
-        image_path = closet_service.show_image()
-        if not image_path:
+        self._image_path = closet_service.show_image()
+        if not self._image_path:
             self._show_error("Please select an image")
             return
         self._hide_error()
-        self._image = PhotoImage(file=image_path)
+        self._image = PhotoImage(file=self._image_path)
 
         # copilot generated code starts
         self._image_area.create_image(0, 0, image=self._image, anchor="nw")

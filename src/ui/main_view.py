@@ -15,6 +15,13 @@ class MainView:
 
     def destroy(self):
         self._frame.destroy()
+    
+    def _show_uploaded_pieces(self):
+        filename = PhotoImage(file="src/data/test_data/blaser.png")
+        canvas = Canvas(self._frame, width=filename.width(), height=filename.height(), bg="white", bd=5, relief="groove")
+        image = canvas.create_image(0, 0, image=filename, anchor="nw")
+        canvas.grid(row=4, column=0, padx=5, pady=5, sticky=constants.N)
+        canvas.image = filename
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -30,9 +37,6 @@ class MainView:
             master=self._frame, text="Uploaded pieces:", font=("Times", 20))
         new_upload_button = ttk.Button(
             master=self._frame, text="Upload a new piece", command=self._handle_show_upload_view)
-        filename = PhotoImage(file="src/data/test_data/blaser.png")
-        canvas = Canvas(self._frame, width=1000, height=filename.height(), bg="white", bd=5, relief="groove")
-        image = canvas.create_image(0, 0, image=filename, anchor="nw")
 
         self._frame.grid_columnconfigure(1, weight=1)
         self._frame.grid_rowconfigure(4, weight=1)
@@ -41,5 +45,4 @@ class MainView:
         welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
         title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
         new_upload_button.grid(row=3, column=1, padx=5, pady=5, sticky=constants.E)
-        canvas.grid(row=4, column=0, padx=5, pady=5, sticky=constants.N)
-        canvas.image = filename
+        self._show_uploaded_pieces()

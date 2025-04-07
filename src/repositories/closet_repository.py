@@ -35,8 +35,8 @@ class ClosetRepository:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "insert into pieces (title) values (?)",
-            (piece.title,)
+            "insert into pieces (title, image_path) values (?, ?)",
+            (piece.title, piece.image_path)
         )
 
         self._connection.commit()
