@@ -2,9 +2,10 @@ from tkinter import ttk, constants, PhotoImage, Canvas
 
 
 class MainView:
-    def __init__(self, root, handle_show_start_view):
+    def __init__(self, root, handle_show_start_view, handle_show_upload_view):
         self._root = root
         self._handle_show_start_view = handle_show_start_view
+        self._handle_show_upload_view = handle_show_upload_view
         self._frame = None
 
         self._initialize()
@@ -27,6 +28,8 @@ class MainView:
 
         title2 = ttk.Label(
             master=self._frame, text="Uploaded pieces:", font=("Times", 20))
+        new_upload_button = ttk.Button(
+            master=self._frame, text="Upload a new piece", command=self._handle_show_upload_view)
         filename = PhotoImage(file="src/data/blaser.png")
         canvas = Canvas(self._frame, width=1000, height=filename.height(), bg="white", bd=5, relief="groove")
         image = canvas.create_image(0, 0, image=filename, anchor="nw")
@@ -37,5 +40,6 @@ class MainView:
         title.grid(row=1, column=0, padx=5, pady=5, sticky=constants.EW)
         welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
         title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
+        new_upload_button.grid(row=3, column=1, padx=5, pady=5, sticky=constants.E)
         canvas.grid(row=4, column=0, padx=5, pady=5, sticky=constants.N)
         canvas.image = filename

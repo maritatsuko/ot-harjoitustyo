@@ -1,6 +1,7 @@
 from ui.start_view import StartView
 from ui.create_acc_view import CreateAccView
 from ui.main_view import MainView
+from ui.upload_view import UploadView
 
 class UI:
 
@@ -43,7 +44,18 @@ class UI:
         self._hide_current_view()
         self._current_view = MainView(
             self._root,
-            self._show_start_view
+            self._show_start_view,
+            self._show_upload_view
+        )
+
+        self._current_view.pack()
+    
+    def _show_upload_view(self):
+        self._hide_current_view()
+        self._current_view = UploadView(
+            self._root,
+            self._show_main_view,
+            self._show_main_view
         )
 
         self._current_view.pack()
