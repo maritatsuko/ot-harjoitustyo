@@ -8,3 +8,6 @@
 
 ## Week 4
 - User can see uploaded images on the main page
+- User can upload pictures of their clothes
+- Updated ClosetService to better handle clothing pieces
+- Updated schema for clothing pieces
