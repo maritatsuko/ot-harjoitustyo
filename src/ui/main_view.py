@@ -1,4 +1,5 @@
 from tkinter import ttk, constants, PhotoImage, Canvas
+from services.closet_service import closet_service
 
 
 class MainView:
@@ -7,6 +8,7 @@ class MainView:
         self._handle_show_start_view = handle_show_start_view
         self._handle_show_upload_view = handle_show_upload_view
         self._frame = None
+        self._all_pieces = None
 
         self._initialize()
 
@@ -17,11 +19,17 @@ class MainView:
         self._frame.destroy()
     
     def _show_uploaded_pieces(self):
-        filename = PhotoImage(file="src/data/test_data/blaser.png")
-        canvas = Canvas(self._frame, width=filename.width(), height=filename.height(), bg="white", bd=5, relief="groove")
-        image = canvas.create_image(0, 0, image=filename, anchor="nw")
-        canvas.grid(row=4, column=0, padx=5, pady=5, sticky=constants.N)
-        canvas.image = filename
+        self._all_pieces = closet_service.get_all_pieces()
+        for i in range(len(self._all_pieces)):
+            piece = self._all_pieces[i]
+            title_label = ttk.Label(master=self._frame, text=piece.title)
+            title_label.grid(row=4 + i, column=0, padx=5, pady=5, sticky=constants.W)
+            image_path = piece.image_path
+            filename = PhotoImage(file=image_path)
+            canvas = Canvas(self._frame, width=filename.width(), height=filename.height(), bg="white", bd=5, relief="groove")
+            image = canvas.create_image(0, 0, image=filename, anchor="nw")
+            canvas.grid(row=4 + i, column=1, padx=5, pady=5, sticky=constants.N)
+            canvas.image = filename
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

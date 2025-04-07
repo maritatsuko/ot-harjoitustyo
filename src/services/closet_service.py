@@ -76,5 +76,8 @@ class ClosetService:
 
         return file_path
 
+    def get_all_pieces(self):
+        return self._closet_repository.find_all()
+
 
 closet_service = ClosetService()

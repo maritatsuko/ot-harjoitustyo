@@ -3,7 +3,7 @@ from entities.piece import Piece
 from database_connection import get_database_connection
 
 def get_piece_by_row(row):
-    return Piece(row["title"]) if row else None
+    return Piece(row["title"], row["image_path"]) if row else None
 
 class ClosetRepository:
 
