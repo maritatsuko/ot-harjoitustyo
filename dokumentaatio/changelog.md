@@ -11,3 +11,4 @@
 - User can upload pictures of their clothes
 - Updated ClosetService to better handle clothing pieces
 - Updated schema for clothing pieces
+- Added a test for the function that creates uploaded pieces
