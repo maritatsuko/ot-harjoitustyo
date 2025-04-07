@@ -30,7 +30,7 @@ class MainView:
             master=self._frame, text="Uploaded pieces:", font=("Times", 20))
         new_upload_button = ttk.Button(
             master=self._frame, text="Upload a new piece", command=self._handle_show_upload_view)
-        filename = PhotoImage(file="src/data/blaser.png")
+        filename = PhotoImage(file="src/data/test_data/blaser.png")
         canvas = Canvas(self._frame, width=1000, height=filename.height(), bg="white", bd=5, relief="groove")
         image = canvas.create_image(0, 0, image=filename, anchor="nw")
 
