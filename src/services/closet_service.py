@@ -51,11 +51,11 @@ class ClosetService:
 
         return user
 
-    def upload_piece(self, title: str, image, upload=True):
+    def upload_piece(self, title: str, image_path, upload=True):
         if self._closet_repository.find_by_title(title):
             raise ValueError("A piece with this name already exists")
 
-        piece = self._closet_repository.upload_piece(Piece(title, image))
+        piece = self._closet_repository.upload_piece(Piece(title, image_path))
 
         if upload:
             self._piece = piece
