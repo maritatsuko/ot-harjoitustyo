@@ -29,7 +29,7 @@ def create_tables(connection):
     cursor.execute("""
         create table pieces (
             id integer primary key autoincrement,
-            name text,
+            title text,
             color text,
             type text,
             image_path text,

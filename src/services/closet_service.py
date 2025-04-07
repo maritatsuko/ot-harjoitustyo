@@ -1,15 +1,25 @@
 from entities.user import User
+from entities.piece import Piece
 
 from repositories.user_repository import (
     user_repository as default_user_repository
+)
+from repositories.closet_repository import (
+    closet_repository as default_closet_repository
 )
 
 
 class ClosetService:
 
-    def __init__(self, user_repository=default_user_repository):
+    def __init__(
+            self,
+            user_repository=default_user_repository,
+            closet_repository=default_closet_repository):
+
         self._user = None
         self._user_repository = user_repository
+        self._piece = None
+        self._closet_repository = closet_repository
 
     def login(self, username: str, password: str):
         user = self._user_repository.find_by_username(username)
@@ -39,6 +49,17 @@ class ClosetService:
             self._user = user
 
         return user
+
+    def upload_piece(self, title: str, upload=True):
+        if self._closet_repository.find_by_title(title):
+            raise ValueError("A piece with this name already exists")
+
+        piece = self._closet_repository.upload_piece(Piece(title))
+
+        if upload:
+            self._piece = piece
+
+        return piece
 
 
 closet_service = ClosetService()
