@@ -8,6 +8,8 @@ I am making a **closet application** where the user can *upload pictures* of the
 
 [Changelog](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
 
+[Arkkitehtuurikuvaus](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+
 ## Installation
 
 1. Install dependencies with
