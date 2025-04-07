@@ -11,7 +11,7 @@ The app can be used by multiple registered users.
 
 ### After signing in
 - the user can see the uploaded pictures | "tehty"
-- the user can upload pictures of their clothes
+- the user can upload pictures of their clothes | "tehty"
 - the user can sort the uploaded clothes by categories such as color and type
 - the user can search for an uploaded clothing item
 - the user can delete an uploaded item
