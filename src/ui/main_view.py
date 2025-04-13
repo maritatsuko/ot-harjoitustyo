@@ -1,4 +1,4 @@
-from tkinter import ttk, constants, PhotoImage, Canvas
+from tkinter import ttk, constants, PhotoImage, Canvas, Scrollbar
 from services.closet_service import closet_service
 
 
@@ -20,19 +20,31 @@ class MainView:
     
     def _show_uploaded_pieces(self):
         self._all_pieces = closet_service.get_all_pieces()
+
+        # code generated with copilot starts here
+        content_frame = ttk.Frame(self._canvas)
+        self._canvas.create_window((0, 0), window=content_frame, anchor="nw")
+        # code generated with copilot ends here
+
         for i in range(len(self._all_pieces)):
             piece = self._all_pieces[i]
-            title_label = ttk.Label(master=self._frame, text=piece.title)
+            title_label = ttk.Label(master=content_frame, text=piece.title)
             title_label.grid(row=4 + i, column=0, padx=5, pady=5, sticky=constants.W)
             image_path = piece.image_path
             filename = PhotoImage(file=image_path)
-            canvas = Canvas(self._frame, width=filename.width(), height=filename.height(), bg="white", bd=5, relief="groove")
+            canvas = Canvas(content_frame, width=filename.width(), height=filename.height(), bg="white", bd=5, relief="groove")
             image = canvas.create_image(0, 0, image=filename, anchor="nw")
             canvas.grid(row=4 + i, column=1, padx=5, pady=5, sticky=constants.N)
             canvas.image = filename
+        
+        # code generated with copilot starts here
+        content_frame.update_idletasks()
+        self._canvas.config(scrollregion=self._canvas.bbox("all"))
+        # code generated with copilot ends here
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+
         title = ttk.Label(master=self._frame,
                           text="Your Closet <3", font=("Times", 24))
         welcome_text = ttk.Label(
@@ -46,6 +58,13 @@ class MainView:
         new_upload_button = ttk.Button(
             master=self._frame, text="Upload a new piece", command=self._handle_show_upload_view)
 
+        # code generated with copilot starts here
+        # Create a canvas and a scrollbar
+        self._canvas = Canvas(self._frame)
+        scrollbar = Scrollbar(self._frame, orient="vertical", command=self._canvas.yview)
+        self._canvas.configure(yscrollcommand=scrollbar.set)
+        # code generated with copilot ends here
+
         self._frame.grid_columnconfigure(1, weight=1)
         self._frame.grid_rowconfigure(4, weight=1)
         logout_button.grid(row=0, column=1, padx=5, pady=5, sticky=constants.E)
@@ -53,4 +72,9 @@ class MainView:
         welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
         title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
         new_upload_button.grid(row=3, column=1, padx=5, pady=5, sticky=constants.E)
+        # code generated with copilot starts here
+        # Place the canvas and scrollbar
+        self._canvas.grid(row=4, column=0, sticky=constants.NSEW)
+        scrollbar.grid(row=4, column=1, sticky=constants.NS)
+        # code generated with copilot ends here
         self._show_uploaded_pieces()
