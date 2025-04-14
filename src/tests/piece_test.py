@@ -13,3 +13,9 @@ class TestClosetRepository(unittest.TestCase):
         pieces = closet_repository.find_all()
         self.assertEqual(len(pieces), 1)
         self.assertEqual(pieces[0].title, "Blaser")
+    
+    def test_delete_piece(self):
+        closet_repository.upload_piece(self.piece_blaser)
+        closet_repository.delete_piece(self.piece_blaser)
+        pieces = closet_repository.find_all()
+        self.assertEqual(len(pieces), 0)
