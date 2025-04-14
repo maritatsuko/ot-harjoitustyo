@@ -12,3 +12,6 @@
 - Updated ClosetService to better handle clothing pieces
 - Updated schema for clothing pieces
 - Added a test for the function that creates uploaded pieces
+
+## Week 5
+- Added a scrollbar to the main view
