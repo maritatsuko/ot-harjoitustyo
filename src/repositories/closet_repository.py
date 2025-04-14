@@ -1,5 +1,4 @@
 from entities.piece import Piece
-# from entities.user import User
 from database_connection import get_database_connection
 
 
