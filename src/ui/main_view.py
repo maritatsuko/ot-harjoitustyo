@@ -4,7 +4,7 @@ from services.closet_service import closet_service
 
 class MainView:
     def __init__(self, root, handle_show_start_view, handle_show_upload_view):
-        self._root = root
+        self._root = root.minsize(800, 1000)
         self._handle_show_start_view = handle_show_start_view
         self._handle_show_upload_view = handle_show_upload_view
         self._frame = None
@@ -29,12 +29,12 @@ class MainView:
         for i in range(len(self._all_pieces)):
             piece = self._all_pieces[i]
             title_label = ttk.Label(master=content_frame, text=piece.title)
-            title_label.grid(row=4 + i, column=0, padx=5, pady=5, sticky=constants.W)
+            title_label.grid(row=4 + i, column=1, padx=5, pady=5, sticky=constants.W)
             image_path = piece.image_path
             filename = PhotoImage(file=image_path)
             canvas = Canvas(content_frame, width=filename.width(), height=filename.height(), bg="white", bd=5, relief="groove")
             image = canvas.create_image(0, 0, image=filename, anchor="nw")
-            canvas.grid(row=4 + i, column=1, padx=5, pady=5, sticky=constants.N)
+            canvas.grid(row=4 + i, column=2, padx=5, pady=5, sticky=constants.N)
             canvas.image = filename
         
         # code generated with copilot starts here
@@ -65,7 +65,7 @@ class MainView:
         self._canvas.configure(yscrollcommand=scrollbar.set)
         # code generated with copilot ends here
 
-        self._frame.grid_columnconfigure(1, weight=1)
+        self._frame.grid_columnconfigure(2, weight=1)
         self._frame.grid_rowconfigure(4, weight=1)
         logout_button.grid(row=0, column=1, padx=5, pady=5, sticky=constants.E)
         title.grid(row=1, column=0, padx=5, pady=5, sticky=constants.EW)
@@ -75,6 +75,6 @@ class MainView:
         # code generated with copilot starts here
         # Place the canvas and scrollbar
         self._canvas.grid(row=4, column=0, sticky=constants.NSEW)
-        scrollbar.grid(row=4, column=1, sticky=constants.NS)
+        scrollbar.grid(row=4, column=2, sticky=constants.NS)
         # code generated with copilot ends here
         self._show_uploaded_pieces()
