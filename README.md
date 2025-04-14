@@ -1,6 +1,9 @@
 # Ohjelmistotekniikka, harjoitustyö
 I am making a **closet application** where the user can *upload pictures* of their clothes and *sort* them.
 
+# Releases
+[viikko5](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Documentation
 [Vaatimusmäärittely](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
