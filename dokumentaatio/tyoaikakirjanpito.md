@@ -8,5 +8,5 @@
 | 6.4. | 2 | figuring out how to display images in TKinter, UI updates for main view, updated SQL schema |
 | 7.4. | 4 | planning and coding UI and functionality for uploading pieces, added a test for uploading pieces, (arkkitehtuurikuvaus)|
 | 13.4. | 1 | adding a scrollbar to main view |
-| 13.4. |  | coding functionality for deleting pieces, adding tests |
+| 13.4. |  | coding functionality for deleting pieces, adding tests, (sekvenssikaavio) |
 | total   | 13   | | 
