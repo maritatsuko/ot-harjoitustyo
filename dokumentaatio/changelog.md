@@ -16,3 +16,4 @@
 ## Week 5
 - Added a scrollbar to the main view
 - User can delete an uploaded piece
+- Added tests for deleting a piece and logging in
