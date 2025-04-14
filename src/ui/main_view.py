@@ -17,11 +17,17 @@ class MainView:
 
     def destroy(self):
         self._frame.destroy()
-    
+
+    def _delete_piece(self, piece):
+        if closet_service.delete_piece(piece):
+            self._show_uploaded_pieces()
+
     def _show_uploaded_pieces(self):
         self._all_pieces = closet_service.get_all_pieces()
 
         # code generated with copilot starts here
+        for widget in self._canvas.winfo_children():
+            widget.destroy()
         content_frame = ttk.Frame(self._canvas, width=800)
         self._canvas.create_window((0, 0), window=content_frame, anchor="nw")
         # code generated with copilot ends here
@@ -29,16 +35,21 @@ class MainView:
         for i in range(len(self._all_pieces)):
             piece = self._all_pieces[i]
             title_label = ttk.Label(master=content_frame, text=piece.title)
-            title_label.grid(row=4 + i, column=0, padx=5, pady=5, sticky=constants.W)
+            title_label.grid(row=4 + i, column=0, padx=5,
+                             pady=5, sticky=constants.W)
             image_path = piece.image_path
             filename = PhotoImage(file=image_path)
-            canvas = Canvas(content_frame, width=filename.width(), height=filename.height(), bg="white", bd=5, relief="groove")
+            canvas = Canvas(content_frame, width=filename.width(
+            ), height=filename.height(), bg="white", bd=5, relief="groove")
             image = canvas.create_image(0, 0, image=filename, anchor="nw")
-            canvas.grid(row=4 + i, column=1, padx=5, pady=5, sticky=constants.N)
+            canvas.grid(row=4 + i, column=1, padx=5,
+                        pady=5, sticky=constants.N)
             canvas.image = filename
-            delete_button = ttk.Button(master=content_frame, text="Delete piece", command=lambda piece=piece: closet_service.delete_piece(piece))
-            delete_button.grid(row=4 + i, column=2, padx=10, pady=5, sticky=constants.E)
-        
+            delete_button = ttk.Button(
+                master=content_frame, text="Delete piece", command=lambda piece=piece: self._delete_piece(piece))
+            delete_button.grid(row=4 + i, column=2, padx=10,
+                               pady=5, sticky=constants.E)
+
         # code generated with copilot starts here
         content_frame.update_idletasks()
         self._canvas.config(scrollregion=self._canvas.bbox("all"))
@@ -63,7 +74,8 @@ class MainView:
         # code generated with copilot starts here
         # Create a canvas and a scrollbar
         self._canvas = Canvas(self._frame, width=800)
-        scrollbar = Scrollbar(self._frame, orient="vertical", command=self._canvas.yview)
+        scrollbar = Scrollbar(self._frame, orient="vertical",
+                              command=self._canvas.yview)
         self._canvas.configure(yscrollcommand=scrollbar.set)
         # code generated with copilot ends here
 
@@ -73,7 +85,8 @@ class MainView:
         title.grid(row=1, column=0, padx=5, pady=5, sticky=constants.EW)
         welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
         title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
-        new_upload_button.grid(row=3, column=1, padx=5, pady=5, sticky=constants.E)
+        new_upload_button.grid(row=3, column=1, padx=5,
+                               pady=5, sticky=constants.E)
         # code generated with copilot starts here
         # Place the canvas and scrollbar
         self._canvas.grid(row=4, column=0, sticky=constants.NSEW)

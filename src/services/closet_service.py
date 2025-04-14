@@ -10,6 +10,7 @@ from repositories.closet_repository import (
     closet_repository as default_closet_repository
 )
 
+
 class ClosetService:
 
     def __init__(
@@ -62,6 +63,13 @@ class ClosetService:
 
         return piece
 
+    def get_all_pieces(self):
+        return self._closet_repository.find_all()
+
+    def delete_piece(self, piece: Piece):
+        self._closet_repository.delete_piece(piece)
+        return True
+
     def show_image(self):
         file_path = filedialog.askopenfilename(
             initialdir=os.getcwd(),
@@ -75,9 +83,6 @@ class ClosetService:
             raise ValueError("Invalid image format")
 
         return file_path
-
-    def get_all_pieces(self):
-        return self._closet_repository.find_all()
 
 
 closet_service = ClosetService()
