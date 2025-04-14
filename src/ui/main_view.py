@@ -67,7 +67,7 @@ class MainView:
 
         self._frame.grid_columnconfigure(2, weight=1)
         self._frame.grid_rowconfigure(4, weight=1)
-        logout_button.grid(row=0, column=1, padx=5, pady=5, sticky=constants.E)
+        logout_button.grid(row=0, column=2, padx=5, pady=5, sticky=constants.E)
         title.grid(row=1, column=0, padx=5, pady=5, sticky=constants.EW)
         welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
         title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
@@ -75,6 +75,6 @@ class MainView:
         # code generated with copilot starts here
         # Place the canvas and scrollbar
         self._canvas.grid(row=4, column=0, sticky=constants.NSEW)
-        scrollbar.grid(row=4, column=2, sticky=constants.NS)
+        scrollbar.grid(row=4, column=3, sticky=constants.NS)
         # code generated with copilot ends here
         self._show_uploaded_pieces()
