@@ -17,3 +17,6 @@
 - Added a scrollbar to the main view
 - User can delete an uploaded piece
 - Added tests for deleting a piece and logging in
+
+## Week 6
+- User can choose the color of the piece when uploading
