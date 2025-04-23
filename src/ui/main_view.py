@@ -73,6 +73,11 @@ class MainView:
             master=self._frame, text="Uploaded pieces:", font=("Times", 20))
         new_upload_button = ttk.Button(
             master=self._frame, text="Upload a new piece", command=self._handle_show_upload_view)
+        sort_label = ttk.Label(
+            master=self._frame, text="Sort by:", font=("Times", 16))
+        sort_by_menu = ttk.Combobox(
+            master=self._frame, values=["Color", "Category", "Title"], state="readonly")
+        sort_by_menu.set("Select")
 
         # code generated with copilot starts here
         # Create a canvas and a scrollbar
@@ -84,12 +89,14 @@ class MainView:
 
         self._frame.grid_columnconfigure(2, weight=1)
         self._frame.grid_rowconfigure(4, weight=1)
-        logout_button.grid(row=0, column=2, padx=5, pady=5, sticky=constants.E)
+        logout_button.grid(row=0, column=3, padx=5, pady=5, sticky=constants.E)
         title.grid(row=1, column=0, padx=5, pady=5, sticky=constants.EW)
         welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
         title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
         new_upload_button.grid(row=3, column=1, padx=5,
                                pady=5, sticky=constants.E)
+        sort_label.grid(row=3, column=2, padx=5, pady=5, sticky=constants.E)
+        sort_by_menu.grid(row=3, column=3, padx=5, pady=5, sticky=constants.E)
         # code generated with copilot starts here
         # Place the canvas and scrollbar
         self._canvas.grid(row=4, column=0, sticky=constants.NSEW)
