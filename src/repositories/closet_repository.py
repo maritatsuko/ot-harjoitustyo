@@ -3,7 +3,9 @@ from database_connection import get_database_connection
 
 
 def get_piece_by_row(row):
-    return Piece(row["title"], row["image_path"]) if row else None
+    if not row:
+        return None
+    return Piece(row["title"], row["image_path"], row["color"])
 
 
 class ClosetRepository:
@@ -36,8 +38,8 @@ class ClosetRepository:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "insert into pieces (title, image_path) values (?, ?)",
-            (piece.title, piece.image_path)
+            "insert into pieces (title, image_path, color) values (?, ?, ?)",
+            (piece.title, piece.image_path, piece.color)
         )
 
         self._connection.commit()
