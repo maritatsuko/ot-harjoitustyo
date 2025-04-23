@@ -11,10 +11,10 @@ The app can be used by multiple registered users.
 
 ### After signing in
 - the user can see the uploaded pictures | "tehty"
-- the user can upload pictures of their clothes | "tehty"
+- the user can upload pictures of their clothes and choose a color and a category for the piece | "tehty"
 - the user can log out | "tehty"
 - the user can delete an uploaded item | "tehty"
-- the user can sort the uploaded clothes by categories such as color and type
+- the user can sort the uploaded clothes by color and category
 - the user can search for an uploaded clothing item
 
 ## Further ideas for implementation
