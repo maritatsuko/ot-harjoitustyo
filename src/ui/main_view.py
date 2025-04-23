@@ -9,6 +9,8 @@ class MainView:
         self._handle_show_upload_view = handle_show_upload_view
         self._frame = None
         self._all_pieces = None
+        self._sort_by = None
+        self._sort_by_menu = None
 
         self._initialize()
 
@@ -24,6 +26,9 @@ class MainView:
 
     def _show_uploaded_pieces(self):
         self._all_pieces = closet_service.get_all_pieces()
+        self._sort_by = self._sort_by_menu.get()
+        if self._sort_by != "Select":
+            self._sort_uploaded_pieces(self._sort_by)
 
         # code generated with copilot starts here
         for widget in self._canvas.winfo_children():
@@ -57,6 +62,14 @@ class MainView:
         content_frame.update_idletasks()
         self._canvas.config(scrollregion=self._canvas.bbox("all"))
         # code generated with copilot ends here
+    
+    def _sort_uploaded_pieces(self, sort_by):
+        if sort_by == "Color":
+            self._all_pieces.sort(key=lambda x: x.color)
+        elif sort_by == "Category":
+            self._all_pieces.sort(key=lambda x: x.category)
+        elif sort_by == "Title":
+            self._all_pieces.sort(key=lambda x: x.title)
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -75,9 +88,9 @@ class MainView:
             master=self._frame, text="Upload a new piece", command=self._handle_show_upload_view)
         sort_label = ttk.Label(
             master=self._frame, text="Sort by:", font=("Times", 16))
-        sort_by_menu = ttk.Combobox(
-            master=self._frame, values=["Color", "Category", "Title"], state="readonly")
-        sort_by_menu.set("Select")
+        self._sort_by_menu = ttk.Combobox(
+            master=self._frame, values=["Color", "Category", "Title"], state="readonly", postcommand=self._show_uploaded_pieces)
+        self._sort_by_menu.set("Select")
 
         # code generated with copilot starts here
         # Create a canvas and a scrollbar
@@ -93,10 +106,10 @@ class MainView:
         title.grid(row=1, column=0, padx=5, pady=5, sticky=constants.EW)
         welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
         title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
-        new_upload_button.grid(row=3, column=1, padx=5,
+        sort_label.grid(row=3, column=1, padx=5, pady=5, sticky=constants.E)
+        self._sort_by_menu.grid(row=3, column=2, padx=5, pady=5, sticky=constants.E)
+        new_upload_button.grid(row=3, column=3, padx=5,
                                pady=5, sticky=constants.E)
-        sort_label.grid(row=3, column=2, padx=5, pady=5, sticky=constants.E)
-        sort_by_menu.grid(row=3, column=3, padx=5, pady=5, sticky=constants.E)
         # code generated with copilot starts here
         # Place the canvas and scrollbar
         self._canvas.grid(row=4, column=0, sticky=constants.NSEW)
