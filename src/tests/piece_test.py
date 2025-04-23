@@ -8,6 +8,12 @@ class TestClosetRepository(unittest.TestCase):
         closet_repository.delete_all()
         self.piece_blaser = Piece("Blaser", "src/data/test_data/blaser.png", "brown", "jacket")
     
+    def test_find_all(self):
+        closet_repository.upload_piece(self.piece_blaser)
+        pieces = closet_repository.find_all()
+        self.assertEqual(len(pieces), 1)
+        self.assertEqual(pieces[0].title, "Blaser")
+
     def test_upload_piece(self):
         closet_repository.upload_piece(self.piece_blaser)
         pieces = closet_repository.find_all()
