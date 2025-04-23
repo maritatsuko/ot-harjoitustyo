@@ -11,8 +11,8 @@ class UploadView:
         self._handle_show_main_view = handle_show_main_view
         self._frame = None
         self._title_entry = None
-        self._colors = ["red", "blue", "green", "yellow",
-                        "black", "white", "purple", "pink", "multi"]
+        self._colors = ["red", "blue", "green", "yellow", "brown",
+                        "black", "white", "grey", "purple", "pink", "multi"]
         self._color_entry = None
         self._image = None
         self._image_path = None

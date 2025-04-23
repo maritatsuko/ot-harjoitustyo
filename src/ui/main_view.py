@@ -34,20 +34,23 @@ class MainView:
 
         for i in range(len(self._all_pieces)):
             piece = self._all_pieces[i]
+            color_label = ttk.Label(master=content_frame, text=piece.color)
+            color_label.grid(row=4 + i, column=0, padx=5,
+                             pady=5, sticky=constants.W)
             title_label = ttk.Label(master=content_frame, text=piece.title)
-            title_label.grid(row=4 + i, column=0, padx=5,
+            title_label.grid(row=4 + i, column=1, padx=5,
                              pady=5, sticky=constants.W)
             image_path = piece.image_path
             filename = PhotoImage(file=image_path)
             canvas = Canvas(content_frame, width=filename.width(
             ), height=filename.height(), bg="white", bd=5, relief="groove")
             image = canvas.create_image(0, 0, image=filename, anchor="nw")
-            canvas.grid(row=4 + i, column=1, padx=5,
+            canvas.grid(row=4 + i, column=2, padx=5,
                         pady=5, sticky=constants.N)
             canvas.image = filename
             delete_button = ttk.Button(
                 master=content_frame, text="Delete piece", command=lambda piece=piece: self._delete_piece(piece))
-            delete_button.grid(row=4 + i, column=2, padx=10,
+            delete_button.grid(row=4 + i, column=3, padx=10,
                                pady=5, sticky=constants.E)
 
         # code generated with copilot starts here
@@ -90,6 +93,6 @@ class MainView:
         # code generated with copilot starts here
         # Place the canvas and scrollbar
         self._canvas.grid(row=4, column=0, sticky=constants.NSEW)
-        scrollbar.grid(row=4, column=3, sticky=constants.NS)
+        scrollbar.grid(row=4, column=4, sticky=constants.NS)
         # code generated with copilot ends here
         self._show_uploaded_pieces()
