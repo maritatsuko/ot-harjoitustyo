@@ -32,7 +32,7 @@ def create_tables(connection):
             title text,
             image_path text,
             color text,
-            type text,
+            category text,
             user_id integer,
             foreign key (user_id) references users (id)
         );

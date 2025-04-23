@@ -14,6 +14,9 @@ class UploadView:
         self._colors = ["red", "blue", "green", "yellow", "brown",
                         "black", "white", "grey", "purple", "pink", "multi"]
         self._color_entry = None
+        self._categories = ["top", "t-shirt", "sweater", "hoodie",
+                       "jacket", "dress", "skirt", "pants", "shorts"]
+        self._category_entry = None
         self._image = None
         self._image_path = None
         self._image_area = None
@@ -31,6 +34,7 @@ class UploadView:
     def _upload_handler(self):
         title = self._title_entry.get()
         color = self._color_entry.get()
+        category = self._category_entry.get()
         image_path = self._image_path
 
         if len(title) == 0:
@@ -39,9 +43,12 @@ class UploadView:
         if color == "Select color" or color not in self._colors:
             self._show_error("Please select a valid color")
             return
+        if category == "Select category" or category not in self._categories:
+            self._show_error("Please select a valid category")
+            return
 
         try:
-            closet_service.upload_piece(title, image_path, color)
+            closet_service.upload_piece(title, image_path, color, category)
             self._handle_upload_piece()
         except ValueError:
             self._show_error(
@@ -70,6 +77,15 @@ class UploadView:
 
         color_label.grid(row=3, column=0, sticky=constants.W)
         self._color_entry.grid(row=4, column=0, sticky=constants.EW)
+    
+    def _initialize_category_field(self):
+        category_label = ttk.Label(master=self._frame, text="Category of the piece:")
+        self._category_entry = ttk.Combobox(
+            master=self._frame, values=self._categories, state="readonly")
+        self._category_entry.set("Select category")
+
+        category_label.grid(row=5, column=0, sticky=constants.W)
+        self._category_entry.grid(row=6, column=0, sticky=constants.EW)
 
     def _show_image(self):
         self._image_path = closet_service.show_image()
@@ -86,7 +102,7 @@ class UploadView:
     def _initialize_picture_field(self):
         self._image_area = Canvas(
             self._frame, width=800, height=800, bg="white")
-        self._image_area.grid(row=5, column=0, padx=5,
+        self._image_area.grid(row=7, column=0, padx=5,
                               pady=5, sticky=constants.EW)
         # copilot generated code ends here
 
@@ -114,9 +130,10 @@ class UploadView:
         label.grid(row=0, padx=5, pady=5, sticky=constants.EW)
         self._initialize_title_field()
         self._initialize_color_field()
+        self._initialize_category_field()
         self._initialize_picture_field()
-        image_button.grid(row=5, column=1, padx=5, pady=5, sticky=constants.E)
-        cancel_button.grid(row=6, column=0, padx=5, pady=5, sticky=constants.W)
-        upload_button.grid(row=6, column=1, padx=5, pady=5, sticky=constants.E)
+        image_button.grid(row=7, column=1, padx=5, pady=5, sticky=constants.E)
+        cancel_button.grid(row=8, column=0, padx=5, pady=5, sticky=constants.W)
+        upload_button.grid(row=8, column=1, padx=5, pady=5, sticky=constants.E)
 
         self._hide_error()
