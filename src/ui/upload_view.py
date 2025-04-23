@@ -10,6 +10,8 @@ class UploadView:
         self._handle_show_main_view = handle_show_main_view
         self._frame = None
         self._title_entry = None
+        self._colors = ["red", "blue", "green", "yellow", "black", "white", "purple", "pink", "multi"]
+        self._color_entry = None
         self._image = None
         self._image_path = None
         self._image_area = None
@@ -26,6 +28,7 @@ class UploadView:
     
     def _upload_handler(self):
         title = self._title_entry.get()
+        color = self._color_entry.get()
         image_path = self._image_path
 
         if len(title) == 0:
@@ -33,7 +36,7 @@ class UploadView:
             return
         
         try:
-            closet_service.upload_piece(title, image_path)
+            closet_service.upload_piece(title, image_path, color)
             self._handle_upload_piece()
         except ValueError:
             self._show_error(f"A piece with the name {title} has already been uploaded")
@@ -52,6 +55,14 @@ class UploadView:
 
         title_label.grid(row=1, column=0, sticky=constants.W)
         self._title_entry.grid(row=2, column=0, sticky=constants.EW)
+    
+    def _initialize_color_field(self):
+        color_label = ttk.Label(master=self._frame, text="Color of the piece:")
+        self._color_entry = ttk.Combobox(master=self._frame, values=self._colors)
+        self._color_entry.set("Select color")
+
+        color_label.grid(row=3, column=0, sticky=constants.W)
+        self._color_entry.grid(row=4, column=0, sticky=constants.EW)
 
     def _show_image(self):
         self._image_path = closet_service.show_image()
@@ -67,7 +78,7 @@ class UploadView:
 
     def _initialize_picture_field(self):
         self._image_area = Canvas(self._frame, width=800, height=800, bg="white")
-        self._image_area.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
+        self._image_area.grid(row=5, column=0, padx=5, pady=5, sticky=constants.EW)
         # copilot generated code ends
 
     def _initialize(self):
@@ -90,9 +101,10 @@ class UploadView:
         self._frame.grid_columnconfigure(0, weight=1, minsize=600)
         label.grid(row=0, padx=5, pady=5, sticky=constants.EW)
         self._initialize_title_field()
+        self._initialize_color_field()
         self._initialize_picture_field()
-        image_button.grid(row=3, column=1, padx=5, pady=5, sticky=constants.E)
-        cancel_button.grid(row=4, column=0, padx=5, pady=5, sticky=constants.W)
-        upload_button.grid(row=4, column=1, padx=5, pady=5, sticky=constants.E)
+        image_button.grid(row=5, column=1, padx=5, pady=5, sticky=constants.E)
+        cancel_button.grid(row=6, column=0, padx=5, pady=5, sticky=constants.W)
+        upload_button.grid(row=6, column=1, padx=5, pady=5, sticky=constants.E)
 
         self._hide_error()
