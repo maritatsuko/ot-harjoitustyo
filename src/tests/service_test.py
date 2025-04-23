@@ -11,7 +11,7 @@ class TestClosetService(unittest.TestCase):
         user_repository.delete_all()
         closet_repository.delete_all()
         self.user_mari = User("mari", "1234")
-        self.piece_blaser = Piece("Blaser", "src/data/test_data/blaser.png")
+        self.piece_blaser = Piece("Blaser", "src/data/test_data/blaser.png", "brown", "jacket")
     
     def test_login(self):
         closet_service.create_user(self.user_mari.username, self.user_mari.password)

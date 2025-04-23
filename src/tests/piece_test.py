@@ -6,7 +6,7 @@ class TestClosetRepository(unittest.TestCase):
 
     def setUp(self):
         closet_repository.delete_all()
-        self.piece_blaser = Piece("Blaser", "src/data/test_data/blaser.png")
+        self.piece_blaser = Piece("Blaser", "src/data/test_data/blaser.png", "brown", "jacket")
     
     def test_upload_piece(self):
         closet_repository.upload_piece(self.piece_blaser)
