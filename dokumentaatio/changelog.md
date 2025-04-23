@@ -19,4 +19,4 @@
 - Added tests for deleting a piece and logging in
 
 ## Week 6
-- User can choose the color of the piece when uploading
+- User can choose the color and category of the piece when uploading
