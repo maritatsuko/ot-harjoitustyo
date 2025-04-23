@@ -20,3 +20,4 @@
 
 ## Week 6
 - User can choose the color and category of the piece when uploading
+- User can sort uploaded pieces by color, category, and title
