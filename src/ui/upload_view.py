@@ -79,7 +79,7 @@ class UploadView:
         self._hide_error()
         self._image = PhotoImage(file=self._image_path)
 
-        # copilot generated code starts
+        # copilot generated code starts here
         self._image_area.create_image(0, 0, image=self._image, anchor="nw")
         self._image_area.image = self._image
 
@@ -88,7 +88,7 @@ class UploadView:
             self._frame, width=800, height=800, bg="white")
         self._image_area.grid(row=5, column=0, padx=5,
                               pady=5, sticky=constants.EW)
-        # copilot generated code ends
+        # copilot generated code ends here
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
