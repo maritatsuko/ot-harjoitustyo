@@ -14,7 +14,7 @@ The app can be used by multiple registered users.
 - the user can upload pictures of their clothes and choose a color and a category for the piece | "tehty"
 - the user can log out | "tehty"
 - the user can delete an uploaded item | "tehty"
-- the user can sort the uploaded clothes by color and category
+- the user can sort the uploaded clothes by color, category, and title | "tehty"
 - the user can search for an uploaded clothing item
 
 ## Further ideas for implementation
