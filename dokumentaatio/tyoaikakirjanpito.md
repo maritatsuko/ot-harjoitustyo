@@ -10,5 +10,5 @@
 | 13.4. | 1 | adding a scrollbar to main view |
 | 14.4. | 3  | coding functionality for deleting pieces, adding tests, (sekvenssikaavio), release |
 | 23.4. | 3 | planning and coding UI and functionality for choosing a color and category for a piece when uploading and sorting by them after uploading, added tests |
-| 26.4. |  | docstring documentation |
+| 26.4. |  | docstring documentation, instructions for using the application |
 | total   | 19 | | 
