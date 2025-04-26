@@ -3,14 +3,29 @@ from database_connection import get_database_connection
 
 
 def get_piece_by_row(row):
+    """Converts a database row into a Piece object.
+
+    Args:
+        row[_type_]: A dictionary representing a row from the database.
+
+    Returns:
+        Piece: A Piece object created from the database row if the row is not None, otherwise None.
+    """
     if not row:
         return None
     return Piece(row["title"], row["image_path"], row["color"], row["category"])
 
 
 class ClosetRepository:
+    """Repository class for managing pieces of clothing in the closet.
+    """
 
     def __init__(self, connection):
+        """Class constructor for the ClosetRepository.
+
+        Args:
+            connection: _description_
+        """
 
         self._connection = connection
 
