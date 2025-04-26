@@ -23,3 +23,4 @@
 - User can sort uploaded pieces by color, category, and title
 - Added tests
 - Added docstring documentation
+- Wrote the instruction manual
