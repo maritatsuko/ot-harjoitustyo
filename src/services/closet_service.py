@@ -12,11 +12,21 @@ from repositories.closet_repository import (
 
 
 class ClosetService:
+    """Service class for managing user authentication and closet operations.
+    """
 
     def __init__(
             self,
             user_repository=default_user_repository,
             closet_repository=default_closet_repository):
+        """Class constructor for the ClosetService.
+
+        Args:
+            user_repository: The user repository. Defaults to default_user_repository.
+            closet_repository: The closet repository. Defaults to default_closet_repository.
+            _user: The current user. Defaults to None.
+            _piece: The current piece. Defaults to None.
+        """
 
         self._user = None
         self._user_repository = user_repository
@@ -24,6 +34,18 @@ class ClosetService:
         self._closet_repository = closet_repository
 
     def login(self, username: str, password: str):
+        """Logs in a user by validating their credentials.
+
+        Args:
+            username (str): The username of the user.
+            password (str): The password of the user.
+
+        Raises:
+            ValueError: If the username or password is invalid.
+
+        Returns:
+            User: The authenticated user object.
+        """
         user = self._user_repository.find_by_username(username)
         if not user or user.password != password:
             raise ValueError("Invalid username or password")
@@ -32,17 +54,43 @@ class ClosetService:
         return user
 
     def get_current_user(self):
+        """Returns the currently logged-in user.
+
+        Returns:
+            User: The currently logged-in user object.
+        """
         return self._user
 
     def get_all_users(self):
+        """Returns all users in the system.
+
+        Returns:
+            list: A list of all user objects.
+        """
         return self._user_repository.find_all()
 
     def logout(self):
+        """Logs out the current user by setting the _user attribute to None.
+        """
         self._user = None
 
     def create_user(self, username: str, password: str, login=True):
+        """Creates a new user in the system.
+
+        Args:
+            username (str): The username of the new user.
+            password (str): The password of the new user.
+            login (bool, optional): Defaults to True.
+
+        Raises:
+            ValueError: If the username already exists.
+
+        Returns:
+            User: The newly created user object.
+        """
 
         if self._user_repository.find_by_username(username):
+
             raise ValueError("Username already exists")
 
         user = self._user_repository.create(User(username, password))
