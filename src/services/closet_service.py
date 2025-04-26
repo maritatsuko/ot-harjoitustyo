@@ -101,6 +101,21 @@ class ClosetService:
         return user
 
     def upload_piece(self, title: str, image_path: str, color: str, category: str, upload=True):
+        """Uploads a new piece of clothing.
+
+        Args:
+            title (str): Title (name) of the piece.
+            image_path (str): Image path for the piece.
+            color (str): Color of the piece.
+            category (str): Category of the piece (eg. top, skirt).
+            upload (bool, optional): Defaults to True.
+
+        Raises:
+            ValueError: If a piece with the same name already exists.
+
+        Returns:
+            Piece: The uploaded piece.
+        """
         if self._closet_repository.find_by_title(title):
             raise ValueError("A piece with this name already exists")
 
@@ -113,13 +128,34 @@ class ClosetService:
         return piece
 
     def get_all_pieces(self):
+        """Fetches all uploaded pieces.
+
+        Returns:
+            list: List of all pieces.
+        """
         return self._closet_repository.find_all()
 
     def delete_piece(self, piece: Piece):
+        """Deletes a specific piece.
+
+        Args:
+            piece (Piece): The piece that should be deleted.
+
+        Returns:
+            True
+        """
         self._closet_repository.delete_piece(piece)
         return True
 
     def show_image(self):
+        """Shows the uploaded image on the main view.
+
+        Raises:
+            ValueError: If the image format is incorrect.
+
+        Returns:
+            file_path: The image path.
+        """
         file_path = filedialog.askopenfilename(
             initialdir=os.getcwd(),
             title="Select image file",
