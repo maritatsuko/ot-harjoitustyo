@@ -28,7 +28,7 @@ _ClosetService_ pääsee käsiksi käyttäjiin ja kappaleisiin(pieces) tietojen 
 
 ClosetService-luokan ja ohjelman muiden osien suhdetta kuvaava luokka/pakkauskaavio:
 
-![Pakkausrakenne ja luokat](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/pakkauskaavio.jpg)
+![Pakkausrakenne ja luokat](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/pakkauskaavio.jpg)
 
 ## Sekvenssikaavio uuden vaatekappaleen (Piece) lisäämisestä
 
