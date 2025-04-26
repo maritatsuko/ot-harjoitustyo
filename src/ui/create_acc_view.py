@@ -2,8 +2,23 @@ from tkinter import ttk, constants, StringVar
 from services.closet_service import closet_service
 
 class CreateAccView:
+    """
+    This class represents the view for creating a new account.
+    """
 
     def __init__(self, root, handle_create_acc, handle_show_start_view):
+        """Contructor for the CreateAccView class.
+
+        Args:
+            root: Root window of the application.
+            handle_create_acc: Function to handle account creation.
+            handle_show_start_view: Function to show the start view.
+            _frame: Frame for the view.
+            _username_entry: Entry field for username.
+            _password_entry: Entry field for password.
+            _error_variable: StringVar for error messages.
+            _error_label: Label for displaying error messages.
+        """
 
         self._root = root
         self._handle_create_acc = handle_create_acc
@@ -17,12 +32,16 @@ class CreateAccView:
         self._initialize()
 
     def pack(self):
+        """Pack the frame into the root window."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Destroy the frame."""
         self._frame.destroy()
     
     def _create_acc_handler(self):
+        """Handle the account creation process.
+        """
         username = self._username_entry.get()
         password = self._password_entry.get()
 
@@ -37,13 +56,20 @@ class CreateAccView:
             self._show_error(f"Username {username} already exists")
     
     def _show_error(self, message):
+        """Display an error message in the error label.
+
+        Args:
+            message: The error message to display.
+        """
         self._error_variable.set(message)
         self._error_label.grid()
 
     def _hide_error(self):
+        """Hide the error label."""
         self._error_label.grid_remove()
 
     def _initialize_username_field(self):
+        """Initialize the username field in the frame."""
         username_label = ttk.Label(master=self._frame, text="Username:")
 
         self._username_entry = ttk.Entry(master=self._frame)
@@ -52,6 +78,7 @@ class CreateAccView:
         self._username_entry.grid(row=2, column=0, sticky=constants.EW)
 
     def _initialize_password_field(self):
+        """Initialize the password field in the frame."""
         password_label = ttk.Label(master=self._frame, text="Password:")
 
         self._password_entry = ttk.Entry(master=self._frame)
@@ -60,6 +87,7 @@ class CreateAccView:
         self._password_entry.grid(row=4, column=0, sticky=constants.EW)
 
     def _initialize(self):
+        """Initialize the CreateAccView."""
         self._frame = ttk.Frame(master=self._root)
 
         self._error_variable = StringVar(self._frame)

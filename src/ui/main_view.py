@@ -3,7 +3,21 @@ from services.closet_service import closet_service
 
 
 class MainView:
+    """
+    This class represents the main view of the application.
+    """
     def __init__(self, root, handle_show_start_view, handle_show_upload_view):
+        """Constructor for the MainView class.
+
+        Args:
+            root: Root window of the application.
+            handle_show_start_view: Function to handle showing the start view.
+            handle_show_upload_view: Function to handle showing the upload view.
+            _frame: Frame for the view.
+            _all_pieces: List of all pieces in the closet.
+            _sort_by: Variable to store the sorting criteria.
+            _sort_by_menu: Combobox for selecting sorting criteria.
+        """
         self._root = root.minsize(800, 1000)
         self._handle_show_start_view = handle_show_start_view
         self._handle_show_upload_view = handle_show_upload_view
@@ -15,16 +29,25 @@ class MainView:
         self._initialize()
 
     def pack(self):
+        """Pack the frame into the root window."""
         self._frame.pack(fill=constants.BOTH, expand=True)
 
     def destroy(self):
+        """Destroy the frame."""
         self._frame.destroy()
 
     def _delete_piece(self, piece):
+        """Handle the deletion of a piece.
+
+        Args:
+            piece (Piece): The piece to be deleted.
+        """
         if closet_service.delete_piece(piece):
             self._show_uploaded_pieces()
 
     def _show_uploaded_pieces(self):
+        """Display the uploaded pieces in the closet.
+        """
         self._all_pieces = closet_service.get_all_pieces()
         self._sort_by = self._sort_by_menu.get()
         if self._sort_by != "Select":
@@ -64,6 +87,11 @@ class MainView:
         # code generated with copilot ends here
     
     def _sort_uploaded_pieces(self, sort_by):
+        """Sort the uploaded pieces based on the selected criteria.
+
+        Args:
+            sort_by: The criteria to sort the pieces by. It can be "Color", "Category", or "Title".
+        """
         if sort_by == "Color":
             self._all_pieces.sort(key=lambda x: x.color)
         elif sort_by == "Category":
@@ -72,6 +100,7 @@ class MainView:
             self._all_pieces.sort(key=lambda x: x.title)
 
     def _initialize(self):
+        """Initialize the MainView."""
         self._frame = ttk.Frame(master=self._root)
 
         title = ttk.Label(master=self._frame,

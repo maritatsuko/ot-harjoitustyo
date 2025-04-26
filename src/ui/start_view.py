@@ -2,8 +2,23 @@ from tkinter import ttk, constants, StringVar
 from services.closet_service import closet_service
 
 class StartView:
+    """
+    This class represents the start view of the application.
+    """
 
     def __init__(self, root, handle_login, handle_show_create_acc_view):
+        """Constructor for the StartView class.
+
+        Args:
+            root: Root window of the application.
+            handle_login: Function to handle login.
+            handle_show_create_acc_view: Function to show the create account view.
+            _frame: Frame for the view.
+            _username_entry: Entry field for username.
+            _password_entry: Entry field for password.
+            _error_variable: StringVar for error messages.
+            _error_label: Label for displaying error messages.
+        """
 
         self._root = root
         self._handle_login = handle_login
@@ -17,12 +32,15 @@ class StartView:
         self._initialize()
 
     def pack(self):
+        """Pack the frame into the root window."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Destroy the frame."""
         self._frame.destroy()
     
     def _login_handler(self):
+        """Handle the login process."""
         username = self._username_entry.get()
         password = self._password_entry.get()
     
@@ -33,13 +51,20 @@ class StartView:
             self._show_error("Invalid username or password")
         
     def _show_error(self, message):
+        """Display an error message in the error label.
+
+        Args:
+            message: The error message to be displayed.
+        """
         self._error_variable.set(message)
         self._error_label.grid()
     
     def _hide_error(self):
+        """Hide the error label."""
         self._error_label.grid_remove()
     
     def _initialize_username_field(self):
+        """Initialize the username field."""
         username_label = ttk.Label(master=self._frame, text="Username:")
 
         self._username_entry = ttk.Entry(master=self._frame)
@@ -48,6 +73,7 @@ class StartView:
         self._username_entry.grid(row=2, column=0, sticky=constants.EW)
 
     def _initialize_password_field(self):
+        """Initialize the password field."""
         password_label = ttk.Label(master=self._frame, text="Password:")
 
         self._password_entry = ttk.Entry(master=self._frame)
@@ -56,6 +82,7 @@ class StartView:
         self._password_entry.grid(row=4, column=0, sticky=constants.EW)
 
     def _initialize(self):
+        """Initialize the start view."""
         self._frame = ttk.Frame(master=self._root)
 
         self._error_variable = StringVar(self._frame)
