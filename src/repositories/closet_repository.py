@@ -24,12 +24,17 @@ class ClosetRepository:
         """Class constructor for the ClosetRepository.
 
         Args:
-            connection: _description_
+            connection: Database connection object.
         """
 
         self._connection = connection
 
     def find_all(self):
+        """Fetches all pieces from the database.
+
+        Returns:
+            list: A list of Piece objects representing all pieces in the closet.
+        """
 
         cursor = self._connection.cursor()
         cursor.execute("select * from pieces")
@@ -38,6 +43,14 @@ class ClosetRepository:
         return list(map(get_piece_by_row, rows))
 
     def find_by_title(self, title):
+        """Fetches a piece by its title from the database.
+
+        Args:
+            title: The title (name) of the piece to search for.
+
+        Returns:
+            Piece: A Piece object representing the piece with the given title, or None if not found.
+        """
 
         cursor = self._connection.cursor()
         cursor.execute(
@@ -49,6 +62,14 @@ class ClosetRepository:
         return get_piece_by_row(row)
 
     def upload_piece(self, piece):
+        """Uploads a new piece to the database.
+
+        Args:
+            piece(title, image_path, color, category): A Piece object representing the piece to be uploaded.
+
+        Returns:
+            Piece: The Piece object that was uploaded to the database.
+        """
 
         cursor = self._connection.cursor()
 
@@ -62,6 +83,8 @@ class ClosetRepository:
         return piece
 
     def delete_all(self):
+        """Deletes all pieces from the database.
+        """
 
         cursor = self._connection.cursor()
 
@@ -70,6 +93,12 @@ class ClosetRepository:
         self._connection.commit()
 
     def delete_piece(self, piece):
+        """Deletes a specific piece from the database.
+
+        Args:
+            piece: The Piece object representing the piece to be deleted.
+        """
+
         cursor = self._connection.cursor()
 
         cursor.execute(
