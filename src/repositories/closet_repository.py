@@ -65,7 +65,8 @@ class ClosetRepository:
         """Uploads a new piece to the database.
 
         Args:
-            piece(title, image_path, color, category): A Piece object representing the piece to be uploaded.
+            piece(title, image_path, color, category): 
+            A Piece object representing the piece to be uploaded.
 
         Returns:
             Piece: The Piece object that was uploaded to the database.
