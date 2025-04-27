@@ -2,6 +2,7 @@
 I am making a **closet application** where the user can *upload pictures* of their clothes and *sort* them.
 
 # Releases
+[viikko6](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/viikko6)
 [viikko5](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Documentation
