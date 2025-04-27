@@ -3,6 +3,7 @@ I am making a **closet application** where the user can *upload pictures* of the
 
 # Releases
 [viikko6](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/viikko6)
+
 [viikko5](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Documentation
