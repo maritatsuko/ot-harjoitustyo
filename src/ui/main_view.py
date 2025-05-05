@@ -6,13 +6,14 @@ class MainView:
     """
     This class represents the main view of the application.
     """
-    def __init__(self, root, handle_show_start_view, handle_show_upload_view):
+    def __init__(self, root, handle_show_start_view, handle_show_upload_view, handle_show_edit_view):
         """Constructor for the MainView class.
 
         Args:
             root: Root window of the application.
             handle_show_start_view: Function to handle showing the start view.
             handle_show_upload_view: Function to handle showing the upload view.
+            handle_show_edit_view: Function to handle showing the edit view.
             _frame: Frame for the view.
             _all_pieces: List of all pieces in the closet.
             _sort_by: Variable to store the sorting criteria.
@@ -21,6 +22,7 @@ class MainView:
         self._root = root.minsize(800, 1000)
         self._handle_show_start_view = handle_show_start_view
         self._handle_show_upload_view = handle_show_upload_view
+        self._handle_show_edit_view = handle_show_edit_view
         self._frame = None
         self._all_pieces = None
         self._sort_by = None
@@ -35,6 +37,14 @@ class MainView:
     def destroy(self):
         """Destroy the frame."""
         self._frame.destroy()
+    
+    def _edit_piece(self, piece):
+        """Handle the editing of a piece.
+
+        Args:
+            piece (Piece): The piece to be edited.
+        """
+        self._handle_show_edit_view(piece)
 
     def _delete_piece(self, piece):
         """Handle the deletion of a piece.
@@ -76,9 +86,13 @@ class MainView:
             canvas.grid(row=4 + i, column=2, padx=5,
                         pady=5, sticky=constants.N)
             canvas.image = filename
+            edit_button = ttk.Button(
+                master=content_frame, text="Edit piece", command=lambda piece=piece: self._edit_piece(piece))
+            edit_button.grid(row=4 + i, column=3, padx=10,
+                             pady=5, sticky=constants.E)
             delete_button = ttk.Button(
                 master=content_frame, text="Delete piece", command=lambda piece=piece: self._delete_piece(piece))
-            delete_button.grid(row=4 + i, column=3, padx=10,
+            delete_button.grid(row=4 + i, column=4, padx=10,
                                pady=5, sticky=constants.E)
 
         # code generated with copilot starts here
@@ -142,6 +156,6 @@ class MainView:
         # code generated with copilot starts here
         # Place the canvas and scrollbar
         self._canvas.grid(row=4, column=0, sticky=constants.NSEW)
-        scrollbar.grid(row=4, column=4, sticky=constants.NS)
+        scrollbar.grid(row=4, column=5, sticky=constants.NS)
         # code generated with copilot ends here
         self._show_uploaded_pieces()

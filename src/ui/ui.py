@@ -2,6 +2,7 @@ from ui.start_view import StartView
 from ui.create_acc_view import CreateAccView
 from ui.main_view import MainView
 from ui.upload_view import UploadView
+from ui.edit_view import EditView
 
 class UI:
     """
@@ -59,7 +60,8 @@ class UI:
         self._current_view = MainView(
             self._root,
             self._show_start_view,
-            self._show_upload_view
+            self._show_upload_view,
+            self._show_edit_view
         )
 
         self._current_view.pack()
@@ -69,6 +71,18 @@ class UI:
         self._hide_current_view()
         self._current_view = UploadView(
             self._root,
+            self._show_main_view,
+            self._show_main_view
+        )
+
+        self._current_view.pack()
+    
+    def _show_edit_view(self, piece):
+        """Show the edit view."""
+        self._hide_current_view()
+        self._current_view = EditView(
+            self._root,
+            piece,
             self._show_main_view,
             self._show_main_view
         )
