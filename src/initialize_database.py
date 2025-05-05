@@ -13,6 +13,14 @@ def drop_tables(connection):
         drop table if exists pieces;
     """)
 
+    cursor.execute("""
+        drop table if exists colors;
+    """)
+
+    cursor.execute("""
+        drop table if exists categories;
+    """)
+
     connection.commit()
 
 
@@ -28,14 +36,59 @@ def create_tables(connection):
             password text
         );
     """)
+
+    cursor.execute("""
+        create table colors (
+            id integer primary key autoincrement,
+            name text
+        );
+    """)
+
+    cursor.execute("""
+        insert into colors (name) values
+            ('red'),
+            ('blue'),
+            ('green'),
+            ('yellow'),
+            ('brown'),
+            ('black'),
+            ('white'),
+            ('grey'),
+            ('purple'),
+            ('pink'),
+            ('multi');
+    """)
+
+    cursor.execute("""
+        create table categories (
+            id integer primary key autoincrement,
+            name text
+        );
+    """)
+
+    cursor.execute("""
+        insert into categories (name) values
+            ('top'),
+            ('t-shirt'),
+            ('sweater'),
+            ('hoodie'),
+            ('jacket'),
+            ('dress'),
+            ('skirt'),
+            ('pants'),
+            ('shorts');
+    """)
+
     cursor.execute("""
         create table pieces (
             id integer primary key autoincrement,
             title text,
             image_path text,
-            color text,
-            category text,
+            color integer,
+            category integer,
             user_id integer,
+            foreign key (color) references colors (id),
+            foreign key (category) references categories (id),
             foreign key (user_id) references users (id)
         );
     """)
