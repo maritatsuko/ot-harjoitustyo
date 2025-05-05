@@ -94,8 +94,8 @@ class UploadView:
 
         self._title_entry = ttk.Entry(master=self._frame)
 
-        title_label.grid(row=1, column=0, sticky=constants.W)
-        self._title_entry.grid(row=2, column=0, sticky=constants.EW)
+        title_label.grid(row=2, column=0, sticky=constants.W)
+        self._title_entry.grid(row=3, column=0, sticky=constants.EW)
 
     def _initialize_color_field(self):
         """Initialize the color field for the piece."""
@@ -104,8 +104,8 @@ class UploadView:
             master=self._frame, values=self._colors, state="readonly")
         self._color_entry.set("Select color")
 
-        color_label.grid(row=3, column=0, sticky=constants.W)
-        self._color_entry.grid(row=4, column=0, sticky=constants.EW)
+        color_label.grid(row=4, column=0, sticky=constants.W)
+        self._color_entry.grid(row=5, column=0, sticky=constants.EW)
 
     def _initialize_category_field(self):
         """Initialize the category field for the piece."""
@@ -115,8 +115,8 @@ class UploadView:
             master=self._frame, values=self._categories, state="readonly")
         self._category_entry.set("Select category")
 
-        category_label.grid(row=5, column=0, sticky=constants.W)
-        self._category_entry.grid(row=6, column=0, sticky=constants.EW)
+        category_label.grid(row=6, column=0, sticky=constants.W)
+        self._category_entry.grid(row=7, column=0, sticky=constants.EW)
 
     def _show_image(self):
         """Show the image selection dialog and display the selected image."""
@@ -135,7 +135,7 @@ class UploadView:
         """Initialize the picture field for the piece."""
         self._image_area = Canvas(
             self._frame, width=800, height=800, bg="white")
-        self._image_area.grid(row=7, column=0, padx=5,
+        self._image_area.grid(row=8, column=0, padx=5,
                               pady=5, sticky=constants.EW)
         # copilot generated code ends here
 
@@ -149,7 +149,7 @@ class UploadView:
             textvariable=self._error_variable,
             foreground="red"
         )
-        self._error_label.grid(padx=5, pady=5)
+        self._error_label.grid(row=0, column=0, padx=5, pady=5)
 
         label = ttk.Label(master=self._frame, text="Upload a new piece here!")
 
@@ -161,13 +161,13 @@ class UploadView:
             master=self._frame, text="Cancel", command=self._handle_show_main_view)
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=600)
-        label.grid(row=0, padx=5, pady=5, sticky=constants.EW)
+        label.grid(row=1, padx=5, pady=5, sticky=constants.EW)
         self._initialize_title_field()
         self._initialize_color_field()
         self._initialize_category_field()
         self._initialize_picture_field()
-        image_button.grid(row=7, column=1, padx=5, pady=5, sticky=constants.E)
-        cancel_button.grid(row=8, column=0, padx=5, pady=5, sticky=constants.W)
-        upload_button.grid(row=8, column=1, padx=5, pady=5, sticky=constants.E)
+        image_button.grid(row=8, column=1, padx=5, pady=5, sticky=constants.E)
+        cancel_button.grid(row=9, column=0, padx=5, pady=5, sticky=constants.W)
+        upload_button.grid(row=9, column=1, padx=5, pady=5, sticky=constants.E)
 
         self._hide_error()

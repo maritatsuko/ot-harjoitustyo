@@ -69,8 +69,8 @@ class StartView:
 
         self._username_entry = ttk.Entry(master=self._frame)
 
-        username_label.grid(row=1, column=0, sticky=constants.W)
-        self._username_entry.grid(row=2, column=0, sticky=constants.EW)
+        username_label.grid(row=2, column=0, sticky=constants.W)
+        self._username_entry.grid(row=3, column=0, sticky=constants.EW)
 
     def _initialize_password_field(self):
         """Initialize the password field."""
@@ -78,8 +78,8 @@ class StartView:
 
         self._password_entry = ttk.Entry(master=self._frame)
 
-        password_label.grid(row=3, column=0, sticky=constants.W)
-        self._password_entry.grid(row=4, column=0, sticky=constants.EW)
+        password_label.grid(row=4, column=0, sticky=constants.W)
+        self._password_entry.grid(row=5, column=0, sticky=constants.EW)
 
     def _initialize(self):
         """Initialize the start view."""
@@ -91,7 +91,7 @@ class StartView:
             textvariable=self._error_variable,
             foreground="red"
         )
-        self._error_label.grid(padx=5, pady=5)
+        self._error_label.grid(row=0, column=0, padx=5, pady=5)
 
         label = ttk.Label(master=self._frame, text="Hello world!")
 
@@ -99,11 +99,11 @@ class StartView:
         create_acc_button = ttk.Button(master=self._frame, text="Create New Account", command=self._handle_show_create_acc_view)
         
         self._frame.grid_columnconfigure(0, weight=1, minsize=600)
-        label.grid(row=0, padx=5, pady=5, sticky=constants.EW)
+        label.grid(row=1, padx=5, pady=5, sticky=constants.EW)
         self._initialize_username_field()
         self._initialize_password_field()
 
-        create_acc_button.grid(row=5, column=0, padx=5, pady=5, sticky=constants.E)
-        login_button.grid(row=5, column=1, padx=5, pady=5, sticky=constants.E)
+        create_acc_button.grid(row=6, column=0, padx=5, pady=5, sticky=constants.E)
+        login_button.grid(row=6, column=1, padx=5, pady=5, sticky=constants.E)
 
         self._hide_error()

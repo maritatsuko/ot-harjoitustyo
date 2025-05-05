@@ -74,8 +74,8 @@ class CreateAccView:
 
         self._username_entry = ttk.Entry(master=self._frame)
 
-        username_label.grid(row=1, column=0, sticky=constants.W)
-        self._username_entry.grid(row=2, column=0, sticky=constants.EW)
+        username_label.grid(row=2, column=0, sticky=constants.W)
+        self._username_entry.grid(row=3, column=0, sticky=constants.EW)
 
     def _initialize_password_field(self):
         """Initialize the password field in the frame."""
@@ -83,8 +83,8 @@ class CreateAccView:
 
         self._password_entry = ttk.Entry(master=self._frame)
 
-        password_label.grid(row=3, column=0, sticky=constants.W)
-        self._password_entry.grid(row=4, column=0, sticky=constants.EW)
+        password_label.grid(row=4, column=0, sticky=constants.W)
+        self._password_entry.grid(row=5, column=0, sticky=constants.EW)
 
     def _initialize(self):
         """Initialize the CreateAccView."""
@@ -96,7 +96,7 @@ class CreateAccView:
             textvariable=self._error_variable,
             foreground="red"
         )
-        self._error_label.grid(padx=5, pady=5)
+        self._error_label.grid(row=0, column=0, padx=5, pady=5)
 
         label = ttk.Label(master=self._frame, text="Create a new account here!")
 
@@ -104,10 +104,10 @@ class CreateAccView:
         login_button = ttk.Button(master=self._frame, text="Login instead", command=self._handle_show_start_view)
         
         self._frame.grid_columnconfigure(0, weight=1, minsize=600)
-        label.grid(row=0, padx=5, pady=5, sticky=constants.EW)
+        label.grid(row=1, padx=5, pady=5, sticky=constants.EW)
         self._initialize_username_field()
         self._initialize_password_field()
-        login_button.grid(row=5, column=0, padx=5, pady=5, sticky=constants.E)
-        create_acc_button.grid(row=5, column=1, padx=5, pady=5, sticky=constants.E)
+        login_button.grid(row=6, column=0, padx=5, pady=5, sticky=constants.E)
+        create_acc_button.grid(row=6, column=1, padx=5, pady=5, sticky=constants.E)
 
         self._hide_error()
