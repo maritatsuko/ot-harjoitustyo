@@ -26,4 +26,4 @@
 - Wrote the instruction manual
 
 ## Week 7
-- User can search for a piece from the uploaded pieces
+- User can edit an uploaded piece
