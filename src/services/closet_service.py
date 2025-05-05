@@ -127,6 +127,26 @@ class ClosetService:
 
         return piece
 
+    def edit_piece(self, title: str, old_title: str, image_path: str, color: str, category: str):
+        """Edits an existing piece of clothing.
+
+        Args:
+            title (str): Title (name) of the piece.
+            image_path (str): Image path for the piece.
+            color (str): Color of the piece.
+            category (str): Category of the piece (eg. top, skirt).
+
+        Returns:
+            Piece: The edited piece.
+        """
+
+        piece = self._closet_repository.edit_piece(
+            Piece(title, image_path, color, category), old_title)
+
+        self._piece = piece
+
+        return piece
+
     def get_all_pieces(self):
         """Fetches all uploaded pieces.
 

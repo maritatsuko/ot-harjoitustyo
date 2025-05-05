@@ -83,6 +83,27 @@ class ClosetRepository:
 
         return piece
 
+    def edit_piece(self, piece, old_title):
+        """Edits an existing piece in the database.
+
+        Args:
+            piece: The Piece object representing the piece to be edited.
+            old_title: The old title of the piece to be edited.
+        
+        Returns:
+            Piece: The edited Piece object.
+        """
+
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            "update pieces set title = ?, image_path = ?, color = ?, category = ? where title = ?",
+            (piece.title, piece.image_path, piece.color, piece.category, old_title)
+        )
+
+        self._connection.commit()
+        return piece
+
     def delete_all(self):
         """Deletes all pieces from the database.
         """

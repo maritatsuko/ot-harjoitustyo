@@ -31,6 +31,7 @@ class EditView:
         self._handle_edit_piece = handle_edit_piece
         self._handle_show_main_view = handle_show_main_view
         self._frame = None
+        self._old_title = piece.title
         self._title_entry = None
         self._colors = closet_service.get_all_colors()
         self._color_entry = None
@@ -63,20 +64,19 @@ class EditView:
         if len(title) == 0:
             self._show_error("Please enter a name for the piece")
             return
-        if color == "Select color" or color not in self._colors:
+        if color not in self._colors:
             self._show_error("Please select a valid color")
             return
-        if category == "Select category" or category not in self._categories:
+        if category not in self._categories:
             self._show_error("Please select a valid category")
             return
 
         try:
-            # make new function in closet_service to edit piece
-            closet_service.upload_piece(title, image_path, color, category)
+            closet_service.edit_piece(
+                title, self._old_title, image_path, color, category)
             self._handle_edit_piece()
         except ValueError:
-            self._show_error(
-                f"A piece with the name {title} has already been uploaded")
+            self._show_error("Error while editing the piece")
 
     def _show_error(self, message):
         """Display an error message in the error label.
@@ -96,6 +96,7 @@ class EditView:
         title_label = ttk.Label(master=self._frame, text="Name of the piece:")
 
         self._title_entry = ttk.Entry(master=self._frame)
+        self._title_entry.insert(0, self._old_title)
 
         title_label.grid(row=1, column=0, sticky=constants.W)
         self._title_entry.grid(row=2, column=0, sticky=constants.EW)
@@ -105,7 +106,7 @@ class EditView:
         color_label = ttk.Label(master=self._frame, text="Color of the piece:")
         self._color_entry = ttk.Combobox(
             master=self._frame, values=self._colors, state="readonly")
-        self._color_entry.set("Select color")
+        self._color_entry.set(self._piece.color)
 
         color_label.grid(row=3, column=0, sticky=constants.W)
         self._color_entry.grid(row=4, column=0, sticky=constants.EW)
@@ -116,7 +117,7 @@ class EditView:
             master=self._frame, text="Category of the piece:")
         self._category_entry = ttk.Combobox(
             master=self._frame, values=self._categories, state="readonly")
-        self._category_entry.set("Select category")
+        self._category_entry.set(self._piece.category)
 
         category_label.grid(row=5, column=0, sticky=constants.W)
         self._category_entry.grid(row=6, column=0, sticky=constants.EW)
@@ -140,6 +141,12 @@ class EditView:
             self._frame, width=800, height=800, bg="white")
         self._image_area.grid(row=7, column=0, padx=5,
                               pady=5, sticky=constants.EW)
+        # Display the existing image if available
+        if self._piece.image_path:
+            self._image_path = self._piece.image_path
+            self._image = PhotoImage(file=self._image_path)
+            self._image_area.create_image(0, 0, image=self._image, anchor="nw")
+            self._image_area.image = self._image
         # copilot generated code ends here
 
     def _initialize(self):
