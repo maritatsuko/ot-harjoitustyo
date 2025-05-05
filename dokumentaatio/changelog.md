@@ -27,3 +27,4 @@
 
 ## Week 7
 - User can edit an uploaded piece
+- Error messages are now visible
