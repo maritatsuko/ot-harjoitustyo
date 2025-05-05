@@ -12,4 +12,5 @@
 | 23.4. | 3 | planning and coding UI and functionality for choosing a color and category for a piece when uploading and sorting by them after uploading, added tests |
 | 26.4. | 3 | docstring documentation, instructions for using the application |
 | 27.4. | 1 | (arkkitehtuurikuvaus), release |
+| 5.5. |  | planning and coding UI and functionality for searching uploaded pieces |
 | total   | 23 | | 
