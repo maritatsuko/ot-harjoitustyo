@@ -169,5 +169,21 @@ class ClosetService:
 
         return file_path
 
+    def get_all_colors(self):
+        """Fetches all colors.
+
+        Returns:
+            list: List of all colors.
+        """
+        return self._closet_repository.find_all_colors()
+
+    def get_all_categories(self):
+        """Fetches all categories.
+
+        Returns:
+            list: List of all categories.
+        """
+        return self._closet_repository.find_all_categories()
+
 
 closet_service = ClosetService()

@@ -109,5 +109,31 @@ class ClosetRepository:
 
         self._connection.commit()
 
+    def find_all_colors(self):
+        """Fetches all colors from the database.
+
+        Returns:
+            list: A list of colors.
+        """
+
+        cursor = self._connection.cursor()
+        cursor.execute("select * from colors")
+        rows = cursor.fetchall()
+
+        return [row["name"] for row in rows]
+
+    def find_all_categories(self):
+        """Fetches all categories from the database.
+
+        Returns:
+            list: A list of categories.
+        """
+
+        cursor = self._connection.cursor()
+        cursor.execute("select * from categories")
+        rows = cursor.fetchall()
+
+        return [row["name"] for row in rows]
+
 
 closet_repository = ClosetRepository(get_database_connection())

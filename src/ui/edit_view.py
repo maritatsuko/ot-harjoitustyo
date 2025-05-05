@@ -32,11 +32,9 @@ class EditView:
         self._handle_show_main_view = handle_show_main_view
         self._frame = None
         self._title_entry = None
-        self._colors = ["red", "blue", "green", "yellow", "brown",
-                        "black", "white", "grey", "purple", "pink", "multi"]
+        self._colors = closet_service.get_all_colors()
         self._color_entry = None
-        self._categories = ["top", "t-shirt", "sweater", "hoodie",
-                       "jacket", "dress", "skirt", "pants", "shorts"]
+        self._categories = closet_service.get_all_categories()
         self._category_entry = None
         self._image = None
         self._image_path = None
@@ -111,10 +109,11 @@ class EditView:
 
         color_label.grid(row=3, column=0, sticky=constants.W)
         self._color_entry.grid(row=4, column=0, sticky=constants.EW)
-    
+
     def _initialize_category_field(self):
         """Initialize the category field for the piece."""
-        category_label = ttk.Label(master=self._frame, text="Category of the piece:")
+        category_label = ttk.Label(
+            master=self._frame, text="Category of the piece:")
         self._category_entry = ttk.Combobox(
             master=self._frame, values=self._categories, state="readonly")
         self._category_entry.set("Select category")
