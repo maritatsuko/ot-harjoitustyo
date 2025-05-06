@@ -13,5 +13,5 @@
 | 26.4. | 3 | docstring documentation, instructions for using the application |
 | 27.4. | 1 | (arkkitehtuurikuvaus), release |
 | 5.5. | 3 | planning and coding UI and functionality for editing uploaded pieces, fix error messages |
-| 6.5. |  | add hashing for passwords, add tests |
-| total   | 26 | | 
+| 6.5. | 3 | add hashing for passwords, add tests |
+| total   | 29 | | 
