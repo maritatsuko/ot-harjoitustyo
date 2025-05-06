@@ -1,6 +1,7 @@
 from tkinter import ttk, constants, StringVar
 from services.closet_service import closet_service
 
+
 class StartView:
     """
     This class represents the start view of the application.
@@ -38,18 +39,18 @@ class StartView:
     def destroy(self):
         """Destroy the frame."""
         self._frame.destroy()
-    
+
     def _login_handler(self):
         """Handle the login process."""
         username = self._username_entry.get()
         password = self._password_entry.get()
-    
+
         try:
             closet_service.login(username, password)
             self._handle_login()
         except Exception:
             self._show_error("Invalid username or password")
-        
+
     def _show_error(self, message):
         """Display an error message in the error label.
 
@@ -58,11 +59,11 @@ class StartView:
         """
         self._error_variable.set(message)
         self._error_label.grid()
-    
+
     def _hide_error(self):
         """Hide the error label."""
         self._error_label.grid_remove()
-    
+
     def _initialize_username_field(self):
         """Initialize the username field."""
         username_label = ttk.Label(master=self._frame, text="Username:")
@@ -76,7 +77,7 @@ class StartView:
         """Initialize the password field."""
         password_label = ttk.Label(master=self._frame, text="Password:")
 
-        self._password_entry = ttk.Entry(master=self._frame)
+        self._password_entry = ttk.Entry(master=self._frame, show="*")
 
         password_label.grid(row=4, column=0, sticky=constants.W)
         self._password_entry.grid(row=5, column=0, sticky=constants.EW)
@@ -95,15 +96,18 @@ class StartView:
 
         label = ttk.Label(master=self._frame, text="Hello world!")
 
-        login_button = ttk.Button(master=self._frame, text="Login", command=self._login_handler)
-        create_acc_button = ttk.Button(master=self._frame, text="Create New Account", command=self._handle_show_create_acc_view)
-        
+        login_button = ttk.Button(
+            master=self._frame, text="Login", command=self._login_handler)
+        create_acc_button = ttk.Button(
+            master=self._frame, text="Create New Account", command=self._handle_show_create_acc_view)
+
         self._frame.grid_columnconfigure(0, weight=1, minsize=600)
         label.grid(row=1, padx=5, pady=5, sticky=constants.EW)
         self._initialize_username_field()
         self._initialize_password_field()
 
-        create_acc_button.grid(row=6, column=0, padx=5, pady=5, sticky=constants.E)
+        create_acc_button.grid(row=6, column=0, padx=5,
+                               pady=5, sticky=constants.E)
         login_button.grid(row=6, column=1, padx=5, pady=5, sticky=constants.E)
 
         self._hide_error()
