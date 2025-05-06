@@ -47,7 +47,7 @@ class ClosetService:
             User: The authenticated user object.
         """
         user = self._user_repository.find_by_username(username)
-        if not user or self._user_repository.verify_password(user, password) is False:
+        if not user or self._user_repository.verify_password(username, password) is False:
             raise ValueError("Invalid username or password")
 
         self._user = user
@@ -93,7 +93,9 @@ class ClosetService:
 
             raise ValueError("Username already exists")
 
-        user = self._user_repository.create(User(username, password))
+        self._user_repository.create(User(username, password))
+
+        user = self._user_repository.find_by_username(username)
 
         if login:
             self._user = user
