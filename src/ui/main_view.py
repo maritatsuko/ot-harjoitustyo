@@ -153,9 +153,11 @@ class MainView:
         self._sort_by_menu.grid(row=3, column=2, padx=5, pady=5, sticky=constants.E)
         new_upload_button.grid(row=3, column=3, padx=5,
                                pady=5, sticky=constants.E)
+
         # code generated with copilot starts here
         # Place the canvas and scrollbar
         self._canvas.grid(row=4, column=0, sticky=constants.NSEW)
         scrollbar.grid(row=4, column=5, sticky=constants.NS)
         # code generated with copilot ends here
+
         self._show_uploaded_pieces()
