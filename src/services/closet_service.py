@@ -47,7 +47,7 @@ class ClosetService:
             User: The authenticated user object.
         """
         user = self._user_repository.find_by_username(username)
-        if not user or user.password != password:
+        if not user or self._user_repository.verify_password(user, password) is False:
             raise ValueError("Invalid username or password")
 
         self._user = user

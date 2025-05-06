@@ -7,7 +7,7 @@ class User:
 
         Args:
             username (str): Username of the user.
-            password (str): Password of the user.
+            password (str): Hashed password of the user.
         """
         self.username = username
         self.password = password
