@@ -29,3 +29,4 @@
 - User can edit an uploaded piece
 - Error messages are now visible
 - Passwords are now properly hashed in the db
+- Password is now represented with '*' in the login field
