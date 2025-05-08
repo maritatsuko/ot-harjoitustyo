@@ -11,7 +11,7 @@ class TestClosetRepository(unittest.TestCase):
         self.test_piece_2 = Piece(
             "Jacket", "src/data/test_data/jacket.png", "pink", "jacket", "mari")
         self.test_piece_3 = Piece(
-            "T-shirt", "src/data/test_data/tshirt.png", "blue", "shirt", "mari")
+            "T-shirt", "src/data/test_data/tshirt.png", "blue", "shirt", "salla")
 
     def test_upload_piece(self):
         piece = closet_repository.upload_piece(self.test_piece_1)
@@ -44,6 +44,15 @@ class TestClosetRepository(unittest.TestCase):
         self.assertEqual(pieces[0].title, self.test_piece_1.title)
         self.assertEqual(pieces[1].title, self.test_piece_2.title)
         self.assertEqual(pieces[2].title, self.test_piece_3.title)
+
+    def test_find_by_user(self):
+        closet_repository.upload_piece(self.test_piece_1)
+        closet_repository.upload_piece(self.test_piece_2)
+        closet_repository.upload_piece(self.test_piece_3)
+        pieces = closet_repository.find_by_user("mari")
+        self.assertEqual(len(pieces), 2)
+        self.assertEqual(pieces[0].title, self.test_piece_1.title)
+        self.assertEqual(pieces[1].title, self.test_piece_2.title)
 
     def test_find_by_title(self):
         closet_repository.upload_piece(self.test_piece_1)
