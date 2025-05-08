@@ -94,7 +94,7 @@ class StartView:
         )
         self._error_label.grid(row=0, column=0, padx=5, pady=5)
 
-        label = ttk.Label(master=self._frame, text="Hello world!")
+        label = ttk.Label(master=self._frame, text="Login here!")
 
         login_button = ttk.Button(
             master=self._frame, text="Login", command=self._login_handler)
