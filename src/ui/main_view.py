@@ -80,6 +80,8 @@ class MainView:
             title_label.grid(row=4 + i, column=1, padx=5,
                              pady=5, sticky=constants.W)
             image_path = piece.image_path
+            if image_path is None:
+                return
             filename = PhotoImage(file=image_path)
             canvas = Canvas(content_frame, width=filename.width(
             ), height=filename.height(), bg="white", bd=5, relief="groove")
