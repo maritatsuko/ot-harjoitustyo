@@ -7,11 +7,11 @@ class TestClosetRepository(unittest.TestCase):
     def setUp(self):
         closet_repository.delete_all()
         self.test_piece_1 = Piece(
-            "Blaser", "src/data/test_data/blaser.png", "brown", "jacket")
+            "Blaser", "src/data/test_data/blaser.png", "brown", "jacket", "mari")
         self.test_piece_2 = Piece(
-            "Jacket", "src/data/test_data/jacket.png", "pink", "jacket")
+            "Jacket", "src/data/test_data/jacket.png", "pink", "jacket", "mari")
         self.test_piece_3 = Piece(
-            "T-shirt", "src/data/test_data/tshirt.png", "blue", "shirt")
+            "T-shirt", "src/data/test_data/tshirt.png", "blue", "shirt", "mari")
 
     def test_upload_piece(self):
         piece = closet_repository.upload_piece(self.test_piece_1)

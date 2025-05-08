@@ -16,7 +16,7 @@ class TestClosetService(unittest.TestCase):
         self.test_user = closet_service.create_user(
             self.test_username, self.test_password)
         self.piece_blaser = Piece(
-            "Blaser", "src/data/test_data/blaser.png", "brown", "jacket")
+            "Blaser", "src/data/test_data/blaser.png", "brown", "jacket", self.test_username)
 
     # User related tests
 
