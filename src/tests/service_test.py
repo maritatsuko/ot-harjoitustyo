@@ -34,6 +34,14 @@ class TestClosetService(unittest.TestCase):
     def test_login_invalid_password(self):
         with self.assertRaises(ValueError):
             closet_service.login(self.test_user.username, "invalid_password")
+    
+    def test_login_with_empty_username(self):
+        with self.assertRaises(ValueError):
+            closet_service.login("", self.test_password)
+    
+    def test_login_with_empty_password(self):
+        with self.assertRaises(ValueError):
+            closet_service.login(self.test_user.username, "")
 
     def test_logout(self):
         closet_service.login(self.test_user.username, self.test_password)
