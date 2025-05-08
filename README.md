@@ -1,7 +1,12 @@
-# Ohjelmistotekniikka, harjoitustyö
-I am making a **closet application** where the user can *upload pictures* of their clothes and *sort* them.
+# ClosetApp (Ohjelmistotekniikka, harjoitustyö)
+ClosetApp is an application for storing and sorting items in your closet.
+You can add pictures of your clothes and sort through them alphabetically, by color, and by category.
+You can also edit the pieces you have uploaded.
 
 # Releases
+
+[final]()
+
 [viikko6](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/viikko6)
 
 [viikko5](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/viikko5)
@@ -14,6 +19,8 @@ I am making a **closet application** where the user can *upload pictures* of the
 [Changelog](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
 
 [Arkkitehtuurikuvaus](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+
+[Testausdokumentti](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/testaus.md)
 
 [Käyttöohje / Instruction manual](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
 
