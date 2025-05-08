@@ -5,7 +5,7 @@ You can also edit the pieces you have uploaded.
 
 # Releases
 
-[final]()
+[loppupalautus / final](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/loppupalautus)
 
 [viikko6](https://github.com/maritatsuko/ot-harjoitustyo/releases/tag/viikko6)
 
