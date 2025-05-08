@@ -6,8 +6,11 @@ The app can be used by multiple registered users. Currently all users can upload
 
 ## Basic functionality
 ### Before signing in
-- the user can create an account | "tehty"
-- the user can log in | "tehty"
+- The user can create an account
+  - The username should be unique and 1 or more characters
+  - The password should be 1 or more characters
+- The user can log in
+  - The user can login with an existing username and password
 
 ### After signing in
 - the user can see the uploaded pictures | "tehty"
