@@ -2,7 +2,7 @@
 
 ## Purpose of the application
 The user can use the app to keep track of all the clothing items they own by uploading pictures. 
-The app can be used by multiple registered users.
+The app can be used by multiple registered users. Currently all users can upload, edit, and see the same pieces in the same closet.
 
 ## Basic functionality
 ### Before signing in
