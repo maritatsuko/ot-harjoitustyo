@@ -33,3 +33,4 @@
 - Added tests
 - Users can now only see, edit and delete their own pieces
 - Updated documentation to reflect final state of the project
+- Bugfixes
