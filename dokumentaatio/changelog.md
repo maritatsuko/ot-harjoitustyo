@@ -31,3 +31,5 @@
 - Passwords are now properly hashed in the db
 - Password is now represented with '*' in the login field
 - Added tests
+- Users can now only see, edit and delete their own pieces
+- Updated documentation to reflect final state of the project
