@@ -6,6 +6,7 @@ class MainView:
     """
     This class represents the main view of the application.
     """
+
     def __init__(self, root, handle_show_start_view, handle_show_upload_view, handle_show_edit_view):
         """Constructor for the MainView class.
 
@@ -37,7 +38,7 @@ class MainView:
     def destroy(self):
         """Destroy the frame."""
         self._frame.destroy()
-    
+
     def _edit_piece(self, piece):
         """Handle the editing of a piece.
 
@@ -58,7 +59,7 @@ class MainView:
     def _show_uploaded_pieces(self):
         """Display the uploaded pieces in the closet.
         """
-        self._all_pieces = closet_service.get_all_pieces()
+        self._all_pieces = closet_service.get_pieces_by_user()
         self._sort_by = self._sort_by_menu.get()
         if self._sort_by != "Select":
             self._sort_uploaded_pieces(self._sort_by)
@@ -99,7 +100,7 @@ class MainView:
         content_frame.update_idletasks()
         self._canvas.config(scrollregion=self._canvas.bbox("all"))
         # code generated with copilot ends here
-    
+
     def _sort_uploaded_pieces(self, sort_by):
         """Sort the uploaded pieces based on the selected criteria.
 
@@ -150,7 +151,8 @@ class MainView:
         welcome_text.grid(row=2, column=0, padx=5, pady=5, sticky=constants.EW)
         title2.grid(row=3, column=0, padx=5, pady=5, sticky=constants.EW)
         sort_label.grid(row=3, column=1, padx=5, pady=5, sticky=constants.E)
-        self._sort_by_menu.grid(row=3, column=2, padx=5, pady=5, sticky=constants.E)
+        self._sort_by_menu.grid(row=3, column=2, padx=5,
+                                pady=5, sticky=constants.E)
         new_upload_button.grid(row=3, column=3, padx=5,
                                pady=5, sticky=constants.E)
 

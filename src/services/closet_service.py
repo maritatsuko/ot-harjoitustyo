@@ -122,7 +122,7 @@ class ClosetService:
             raise ValueError("A piece with this name already exists")
 
         piece = self._closet_repository.upload_piece(
-            Piece(title, image_path, color, category))
+            Piece(title, image_path, color, category, self._user.username))
 
         if upload:
             self._piece = piece
@@ -143,7 +143,7 @@ class ClosetService:
         """
 
         piece = self._closet_repository.edit_piece(
-            Piece(title, image_path, color, category), old_title)
+            Piece(title, image_path, color, category, self._user.username), old_title)
 
         self._piece = piece
 
@@ -156,6 +156,14 @@ class ClosetService:
             list: List of all pieces.
         """
         return self._closet_repository.find_all()
+
+    def get_pieces_by_user(self):
+        """Fetches all pieces uploaded by the current user.
+
+        Returns:
+            list: List of pieces uploaded by the current user.
+        """
+        return self._closet_repository.find_by_user(self._user.username)
 
     def delete_piece(self, piece: Piece):
         """Deletes a specific piece.

@@ -86,10 +86,10 @@ def create_tables(connection):
             image_path text,
             color integer,
             category integer,
-            user_id integer,
+            uploaded_by text,
             foreign key (color) references colors (id),
             foreign key (category) references categories (id),
-            foreign key (user_id) references users (id)
+            foreign key (uploaded_by) references users (username)
         );
     """)
 

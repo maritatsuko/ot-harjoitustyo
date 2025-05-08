@@ -13,7 +13,7 @@ def get_piece_by_row(row):
     """
     if not row:
         return None
-    return Piece(row["title"], row["image_path"], row["color"], row["category"])
+    return Piece(row["title"], row["image_path"], row["color"], row["category"], row["uploaded_by"])
 
 
 class ClosetRepository:
@@ -42,6 +42,25 @@ class ClosetRepository:
 
         return list(map(get_piece_by_row, rows))
 
+    def find_by_user(self, username):
+        """Fetches all pieces uploaded by a specific user.
+
+        Args:
+            user: The username of the user whose pieces are to be fetched.
+
+        Returns:
+            list: A list of Piece objects representing the pieces uploaded by the user.
+        """
+
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "select * from pieces where uploaded_by = ?",
+            (username,)
+        )
+        rows = cursor.fetchall()
+
+        return list(map(get_piece_by_row, rows))
+
     def find_by_title(self, title):
         """Fetches a piece by its title from the database.
 
@@ -65,7 +84,7 @@ class ClosetRepository:
         """Uploads a new piece to the database.
 
         Args:
-            piece(title, image_path, color, category): 
+            piece(title, image_path, color, category, uploaded_by): 
             A Piece object representing the piece to be uploaded.
 
         Returns:
@@ -75,8 +94,10 @@ class ClosetRepository:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "insert into pieces (title, image_path, color, category) values (?, ?, ?, ?)",
-            (piece.title, piece.image_path, piece.color, piece.category)
+            "insert into pieces (title, image_path, color, category, uploaded_by) "
+            "values (?, ?, ?, ?, ?)",
+            (piece.title, piece.image_path, piece.color,
+             piece.category, piece.uploaded_by)
         )
 
         self._connection.commit()
@@ -89,7 +110,7 @@ class ClosetRepository:
         Args:
             piece: The Piece object representing the piece to be edited.
             old_title: The old title of the piece to be edited.
-        
+
         Returns:
             Piece: The edited Piece object.
         """
