@@ -80,15 +80,14 @@ class MainView:
             title_label.grid(row=4 + i, column=1, padx=5,
                              pady=5, sticky=constants.W)
             image_path = piece.image_path
-            if image_path is None:
-                return
-            filename = PhotoImage(file=image_path)
-            canvas = Canvas(content_frame, width=filename.width(
-            ), height=filename.height(), bg="white", bd=5, relief="groove")
-            image = canvas.create_image(0, 0, image=filename, anchor="nw")
-            canvas.grid(row=4 + i, column=2, padx=5,
-                        pady=5, sticky=constants.N)
-            canvas.image = filename
+            if image_path:
+                filename = PhotoImage(file=image_path)
+                canvas = Canvas(content_frame, width=filename.width(
+                ), height=filename.height(), bg="white", bd=5, relief="groove")
+                image = canvas.create_image(0, 0, image=filename, anchor="nw")
+                canvas.grid(row=4 + i, column=2, padx=5,
+                            pady=5, sticky=constants.N)
+                canvas.image = filename
             edit_button = ttk.Button(
                 master=content_frame, text="Edit piece", command=lambda piece=piece: self._edit_piece(piece))
             edit_button.grid(row=4 + i, column=3, padx=10,
