@@ -68,12 +68,42 @@ Kun olet täyttänyt kaikki tiedot vaatteesta, paina "Upload piece"-painiketta l
 
 ![](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/upload_view_2.jpeg)
 
+When you have uploaded multiple pieces, you can scroll through them using the scrollbar in the righthand side.
+
+Useamman vaatteen lataamisen jälkeen niitä voi selata käyttämällä oikeassa laidassa olevaa scrollbaria.
+
+![](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/main_view_3.jpeg)
+
+## Editing Uploaded Pieces / Ladattujen vaatekappaleiden muokkaus
+
+You can edit uploaded pieces by clicking the "Edit piece" button next to the one you want to edit.
+The editing view opens up prefilled with the information you have previously provided and you can edit any of the fields.
+
+Voit muokata ladattuja vaatekappaleita painamalla "Edit piece" nappulaa valitsemasi kappaleen kohdalla.
+Muokkausnäkymä avautuu esitäytettynä aiemmin antamillasi tiedoilla ja voit muokata kaikkia kenttiä.
+
+![](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/edit_view_1.jpeg)
+
+For example, let's change the color from grey to brown and save the changes by clicking the "Save edits" button.
+
+Esimerkiksi muutetaan väri harmaasta (grey) ruskeaksi (brown) ja tallennetaan muutokset painamalla "Save edits" -nappia.
+
+![](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/edit_view_2.jpeg)
+
+The edited piece is now visible in the main view.
+
+Muokattu vaate on nyt näkyvillä päänäkymässä.
+
+![](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/main_view_4.jpeg)
+
 ## Sorting Uploaded Pieces / Ladattujen vaatekappaleiden järjestys
 You can sort the uploaded pieces by Color, Category, and Title (all alphabetically) by clicking the Sort by: dropdown menu.
+For example, sorting by title brings the blaser to the top of the page.
 
 Voit vaihtaa ladattujen kappaleiden järjestystä aakkosjärjestyksellisten kategorioiden (Color/Väri, Category/Kategoria, Title/Nimi) mukaan klikkaamalla Sort by:n kohdalla olevaa valikkoa.
+Esimerkiksi nimen mukaan järjestäminen asettaa blaserin sivun ensimmäiseksi.
 
-![](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/main_view_2.jpeg)
+![](https://github.com/maritatsuko/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/main_view_5.jpeg)
 
 ## Logging out / Uloskirjautuminen
 You can log out by cliking the "Logout" button in the upper righthand corner of the main view. You are then redirected to the login view.
