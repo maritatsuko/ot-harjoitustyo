@@ -14,4 +14,5 @@
 | 27.4. | 1 | (arkkitehtuurikuvaus), release |
 | 5.5. | 3 | planning and coding UI and functionality for editing uploaded pieces, fix error messages |
 | 6.5. | 3 | add hashing for passwords, add tests |
+| 8.5. |  | final documentation, release |
 | total   | 29 | | 
